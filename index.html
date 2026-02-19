@@ -189,7 +189,7 @@
               </div>
 
               <p className="mt-8 text-xs md:text-sm text-gray-400 font-medium">
-                이미 1,200+명의 골퍼가 '스승님'에서 진짜 실력을 찾았습니다
+                이미 1,200+명의 골퍼가 '스승님'에서 진짜 스코어를 찾았습니다
               </p>
             </${FadeIn}>
           </section>
@@ -200,11 +200,11 @@
         const targets = useMemo(
           () => [
             { title: "필드 냉탕온탕 골퍼", desc: "연습장에선 똑바른데, 그린 주변만 가면 뒤땅/탑볼 치는 분", icon: "⛳" },
-            { title: "만년 백돌이 탈출", desc: "드라이버는 멀리 가는데 숏게임에서 타수 다 까먹는 80~110타 골퍼", icon: "🎯" },
-            { title: "패키지 레슨 피해자", desc: "수백만 원 패키지 끊어놓고 프로랑 안 맞아서 돈만 버린 분", icon: "💸" },
+            { title: "만년 백돌이 탈출", desc: "드라이버는 잘 치는데 숏게임에서 타수 다 까먹는 80~110타 골퍼", icon: "🎯" },
+            { title: "패키지 레슨 피해자", desc: "수백만 원 다회권 끊어놓고 프로랑 안 맞아서 돈 버린 분", icon: "💸" },
             { title: "바쁜 비즈니스 골퍼", desc: "시간은 없고, 당장 이번 주 라운딩에서 망신당하기 싫은 분", icon: "💼" },
             { title: "시즌 대비 열혈 골퍼", desc: "본격적인 시즌 시작 전, 확실한 무기 하나 만들고 싶은 분", icon: "🔥" },
-            { title: "독학의 한계", desc: "유튜브만 보고 따라하다가 스윙 다 망가져서 고민인 분", icon: "📱" }
+            { title: "독학의 한계", desc: "유튜브만 보고 따라하다가 스윙 다 망가져서 스트레스 받는 분", icon: "📱" }
           ],
           []
         );
@@ -235,7 +235,7 @@
 
               <${FadeIn} className="mt-16 text-center">
                 <a href="#custom-lesson" onClick=${(e) => (e.preventDefault(), scrollToId("custom-lesson"))} className="inline-flex items-center gap-2 text-emerald-600 font-bold text-lg hover:underline">
-                  내 고민 해결해줄 프로님 찾기
+                  내가 필요한 레슨, 전문 스승님 찾기
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
@@ -885,3 +885,4 @@
     </script>
   </body>
 </html>
+
