@@ -1,0 +1,14 @@
+.
+├── metadata.json
+├── index.html
+├── index.tsx
+├── App.tsx
+├── terms.tsx
+├── privacy.tsx
+├── types.ts
+└── components/
+    ├── Navigation.tsx
+    ├── Section.tsx
+    ├── DownloadSection.tsx
+    ├── Footer.tsx
+    └── IPhoneMockup.tsx

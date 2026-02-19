@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>스승님 X 서수연스승 | 2월 한정 숏게임 실전레슨</title>
+
+    <meta property="og:title" content="스승님 X 서수연스승 | 2월 한정 숏게임 실전레슨" />
+    <meta
+      property="og:description"
+      content="스승님 이벤트 · 정상가 25만원 → 회원가 18만5천원 · 2인 동반 입장료 지원 · 최대 30% 상당 혜택"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rlaeodn1015-oss.github.io/ssnim-lesson-landing/" />
+    <meta property="og:image" content="https://rlaeodn1015-oss.github.io/ssnim-lesson-landing/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+
+    <style>
+      body {
+        font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+          "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+          "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border: 1px solid rgba(255, 255, 255, 0.35);
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://esm.sh/react@19.2.0",
+          "react-dom/client": "https://esm.sh/react-dom@19.2.0/client"
+        }
+      }
+    </script>
+  </head>
+
+  <body class="bg-slate-50 overflow-hidden">
+    <div id="root"></div>
+
+    <script type="module">
+      import React, { useEffect, useRef, useState } from "react";
+      import { createRoot } from "react-dom/client";
+
+      const GolfBall3D = () =>
+        React.createElement(
+          "svg",
+          { width: 80, height: 80, viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
+          React.createElement(
+            "defs",
+            null,
+            React.createElement(
+              "linearGradient",
+              { id: "ballGrad", x1: "0%", y1: "0%", x2: "100%", y2: "100%" },
+              React.createElement("stop", { offset: "0%", stopColor: "#ffffff" }),
+              React.createElement("stop", { offset: "100%", stopColor: "#cbd5e1" })
+            ),
+            React.createElement(
+              "filter",
+              { id: "shadow", x: "-20%", y: "-20%", width: "140%", height: "140%" },
+              React.createElement("feGaussianBlur", { in: "SourceAlpha", stdDeviation: "1" }),
+              React.createElement("feOffset", { dx: "1", dy: "1", result: "offsetblur" }),
+              React.createElement(
+                "feComponentTransfer",
+                null,
+                React.createElement("feFuncA", { type: "linear", slope: "0.3" })
+              ),
+              React.createElement(
+                "feMerge",
+                null,
+                React.createElement("feMergeNode", null),
+                React.createElement("feMergeNode", { in: "SourceGraphic" })
+              )
+            )
+          ),
+          React.createElement("circle", { cx: 12, cy: 12, r: 10, fill: "url(#ballGrad)", filter: "url(#shadow)" }),
+          React.createElement("circle", { cx: 8, cy: 8, r: 1.2, fill: "#94a3b8" }),
+          React.createElement("circle", { cx: 12, cy: 7, r: 1.2, fill: "#94a3b8" }),
+          React.createElement("circle", { cx: 16, cy: 9, r: 1.2, fill: "#94a3b8" }),
+          React.createElement("circle", { cx: 9, cy: 13, r: 1.2, fill: "#94a3b8" }),
+          React.createElement("circle", { cx: 13, cy: 16, r: 1.2, fill: "#94a3b8" }),
+          React.createElement("circle", { cx: 17, cy: 14, r: 1.2, fill: "#94a3b8" })
+        );
+
+      const Trophy3D = () =>
+        React.createElement(
+          "svg",
+          { width: 80, height: 80, viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
+          React.createElement(
+            "defs",
+            null,
+            React.createElement(
+              "linearGradient",
+              { id: "goldGrad", x1: "0%", y1: "0%", x2: "100%", y2: "100%" },
+              React.createElement("stop", { offset: "0%", stopColor: "#fbbf24" }),
+              React.createElement("stop", { offset: "100%", stopColor: "#d97706" })
+            )
+          ),
+          React.createElement("path", {
+            d: "M6 9H4.5C3.67157 9 3 8.32843 3 7.5V6.5C3 5.67157 3.67157 5 4.5 5H6V9ZM18 9H19.5C20.3284 9 21 8.32843 21 7.5V6.5C21 5.67157 20.3284 5 19.5 5H18V9Z",
+            fill: "url(#goldGrad)"
+          }),
+          React.createElement("path", {
+            d: "M6 5H18V12C18 15.3137 15.3137 18 12 18C8.68629 18 6 15.3137 6 12V5Z",
+            fill: "url(#goldGrad)"
+          }),
+          React.createElement("path", { d: "M10 22H14V18H10V22Z", fill: "#b45309" })
+        );
+
+      const Coin3D = () =>
+        React.createElement(
+          "svg",
+          { width: 80, height: 80, viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
+          React.createElement("circle", { cx: 12, cy: 12, r: 9, fill: "#fbbf24" }),
+          React.createElement("circle", { cx: 12, cy: 12, r: 7, stroke: "#d97706", strokeWidth: 2 }),
+          React.createElement(
+            "text",
+            { x: 12, y: 16, fontSize: 8, fontWeight: "black", textAnchor: "middle", fill: "#d97706" },
+            "%"
+          )
+        );
+
+      const Location3D = () =>
+        React.createElement(
+          "svg",
+          { width: 80, height: 80, viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
+          React.createElement("path", {
+            d: "M12 21C12 21 20 13.5 20 8C20 3.58172 16.4183 0 12 0C7.58172 0 4 3.58172 4 8C4 13.5 12 21 12 21Z",
+            fill: "#3b82f6"
+          }),
+          React.createElement("circle", { cx: 12, cy: 8, r: 3, fill: "white" })
+        );
+
+      const CheckIcon = () =>
+        React.createElement(
+          "svg",
+          {
+            width: 24,
+            height: 24,
+            viewBox: "0 0 24 24",
+            fill: "none",
+            stroke: "currentColor",
+            strokeWidth: 4,
+            strokeLinecap: "round",
+            strokeLinejoin: "round",
+            className: "text-blue-600"
+          },
+          React.createElement("polyline", { points: "20 6 9 17 4 12" })
+        );
+
+      const NaverIcon = () =>
+        React.createElement(
+          "svg",
+          { width: 22, height: 22, viewBox: "0 0 24 24", fill: "white" },
+          React.createElement("path", { d: "M4 3h5.2l5.6 8V3H20v18h-5.2l-5.6-8v8H4V3z" })
+        );
+
+      const ChevronLeft = () =>
+        React.createElement(
+          "svg",
+          {
+            width: 24,
+            height: 24,
+            viewBox: "0 0 24 24",
+            fill: "none",
+            stroke: "currentColor",
+            strokeWidth: 3.5,
+            strokeLinecap: "round",
+            strokeLinejoin: "round"
+          },
+          React.createElement("polyline", { points: "15 18 9 12 15 6" })
+        );
+
+      const ChevronRight = () =>
+        React.createElement(
+          "svg",
+          {
+            width: 24,
+            height: 24,
+            viewBox: "0 0 24 24",
+            fill: "none",
+            stroke: "currentColor",
+            strokeWidth: 3.5,
+            strokeLinecap: "round",
+            strokeLinejoin: "round"
+          },
+          React.createElement("polyline", { points: "9 18 15 12 9 6" })
+        );
+
+      const COPY = {
+        headerTitle: "스승님 X 서수연스승",
+        headerSub: "2월 한정 특별 숏게임 실전레슨",
+        urgencyTop: "2월 마지막 7팀 모집 · 선착순 마감 임박",
+        footerBar: "스승님 이벤트 18만5천원 · 2인 입장료 지원 · 최대 30% 상당 혜택",
+        ctaTitle: "숏게임 실전레슨 문의/신청",
+        ctaSub: "10초 신청"
+      };
+
+      const CARD_DATA = [
+        {
+          id: 1,
+          badge: "APP MEMBER FIRST NOTICE",
+          title: React.createElement(
+            "div",
+            { className: "leading-tight" },
+            "스승님 선착순 이벤트",
+            React.createElement("br"),
+            React.createElement("span", { className: "text-blue-600" }, "2월 한정 숏게임, 파3레슨"),
+            React.createElement("br"),
+            "선착순 마감"
+          ),
+          subtitle: "시즌 시작 전,\n숏게임만 잘하면 스코어가 바뀝니다.\n\n소수 프라이빗 레슨으로\n조기 마감될 수 있어요.",
+          iconType: "ball"
+        },
+        {
+          id: 2,
+          badge: "WHY SHORT GAME",
+          title: React.createElement(
+            "div",
+            { className: "leading-tight text-slate-800" },
+            "드라이버, 세컨 잘 쳐놓고",
+            React.createElement("br"),
+            React.createElement("span", { className: "text-red-500" }, "그린 주변에서"),
+            React.createElement("br"),
+            "실수가 잦으신 분들...🫠"
+          ),
+          description:
+            "연습장에선 괜찮은데\n필드에서 타수가 안 줄어드는 이유,\n대부분 숏게임에서 실수합니다.\n\n이번 2월, 시즌 전에\n숏게임 감각을 먼저 만들어 보아요!",
+          iconType: "target"
+        },
+        {
+          id: 3,
+          badge: "LOCATION",
+          title: React.createElement(
+            "div",
+            { className: "leading-tight" },
+            "레슨 장소",
+            React.createElement("br"),
+            "상황에 맞게 진행"
+          ),
+          list: ["실내 : 판교 백야드", "야외 : 외부 장소/파3 가능 (개별 문의)", "장소·일정 협의 후 요청자 맞춤 진행", "※원하는 지역/레슨 따로 문의"],
+          iconType: "hole"
+        },
+        {
+          id: 4,
+          badge: "PROGRAM",
+          title: "서수연스승 숏/파3 실전레슨",
+          subtitle: "거리별 어프로치 · 벙커 · 퍼팅/거리감",
+          description:
+            "이론은 최소,\n진짜 필드 노하우와 감각을\n2시간 집중으로 배워보세요.\n\n소수정예 프라이빗 레슨으로\n퀄리티와 만족도를 높였습니다.",
+          iconType: "putter"
+        },
+        {
+          id: 5,
+          badge: "APP MEMBER BENEFIT",
+          title: React.createElement("div", { className: "leading-tight" }, "스승님 전용 할인가 안내"),
+          benefits: [
+            {
+              label: "APP MEMBER PRICE",
+              value: React.createElement(
+                "div",
+                null,
+                React.createElement("span", { className: "text-slate-400 line-through mr-2 text-base md:text-lg font-black" }, "정상가 25만원"),
+                React.createElement("span", { className: "text-red-600 text-2xl md:text-3xl font-black" }, "혜택가 18만5천원")
+              ),
+              sub: "2월 한정 / 선착순 7팀 (조기 마감 우려)"
+            },
+            {
+              label: "PAIR BENEFIT",
+              value: "2인 동반 신청 시 이용료 지원 혜택",
+              sub: "최대 2만원 / 조건별 적용"
+            },
+            {
+              label: "TOTAL BENEFIT",
+              value: "총 최대 30% 상당 혜택",
+              sub: "※ 혜택은 타임/인원 상황에 따라 변동·조기마감될 수 있습니다."
+            }
+          ],
+          iconType: "ball"
+        },
+        {
+          id: 6,
+          badge: "RECOMMENDED FOR",
+          title: "이런 분들께 추천해요",
+          list: [
+            "시즌 첫 라운딩, 만년 스코어 탈출하고 싶은 분",
+            "연습장에서는 잘치는데 필드에서 망가지는 분",
+            "3펏/어프로치 실수로 스코어 방어가 안되는 분",
+            "친구/지인/가족과 함께 (2인) 참여하고 싶은 분",
+            "숏게임 감각을 ‘극한’으로 끌어올리고 싶은 분"
+          ],
+          iconType: "target"
+        },
+        {
+          id: 7,
+          badge: "HOW TO APPLY",
+          title: "신청/진행 방식",
+          steps: ["하단 [신청하기] 버튼 클릭", "인원/성함·연락처/레슨유형 입력", "운영팀 확인 후 안내", "확정 후 진행"],
+          iconType: "putter"
+        },
+        {
+          id: 8,
+          badge: "LAST CALL",
+          title: React.createElement(
+            "div",
+            { className: "leading-tight" },
+            React.createElement("span", { className: "text-red-600" }, "2월 마지막 7팀"),
+            React.createElement("br"),
+            "지금 신청하시면",
+            React.createElement("br"),
+            React.createElement("span", { className: "text-blue-600" }, "이벤트 혜택 적용")
+          ),
+          description:
+            "✔ 레슨비 25% 할인\n" +
+            "✔ 2인 동반 시 입장료 지원 (최대 2만원)\n" +
+            "✔ 타임별 최소 2인 진행\n\n" +
+            "신청만 남겨주시면 운영팀이 순차 안내드립니다.",
+          iconType: "ball"
+        }
+      ];
+
+      function Card({ data }) {
+        const renderDecorIcon = () => {
+          switch (data.iconType) {
+            case "ball":
+              return React.createElement(GolfBall3D);
+            case "putter":
+              return React.createElement(Trophy3D);
+            case "hole":
+              return React.createElement(Location3D);
+            case "target":
+              return React.createElement(Coin3D);
+            default:
+              return null;
+          }
+        };
+
+        const getWatermark = () => {
+          switch (data.id) {
+            case 1:
+              return "MEMBER";
+            case 2:
+              return "SCORE";
+            case 3:
+              return "PLACE";
+            case 4:
+              return "LESSON";
+            case 5:
+              return "BENEFIT";
+            case 6:
+              return "FOR YOU";
+            case 7:
+              return "STEP";
+            case 8:
+              return "MATCH";
+            default:
+              return "GOLF";
+          }
+        };
+
+        return React.createElement(
+          "div",
+          { className: "relative w-[92vw] max-w-[420px] mx-auto flex-shrink-0 snap-center h-[68svh] md:h-[76svh] p-2" },
+          React.createElement(
+            "div",
+            { className: "glass-card w-full h-full rounded-[48px] shadow-2xl overflow-hidden flex flex-col p-7 md:p-9 relative text-[15px] md:text-[16px]" },
+            React.createElement(
+              "div",
+              {
+                className:
+                  "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[100px] font-black text-blue-500/[0.03] select-none pointer-events-none -rotate-12 whitespace-nowrap z-0 tracking-tighter"
+              },
+              getWatermark()
+            ),
+            React.createElement("div", { className: "absolute -top-2 -right-2 opacity-30 scale-[1.1] rotate-12 blur-[0.5px]" }, renderDecorIcon()),
+            React.createElement(
+              "div",
+              { className: "mb-3 md:mb-4 relative z-10" },
+              data.badge
+                ? React.createElement(
+                    "span",
+                    {
+                      className:
+                        "inline-block px-3 py-0.5 rounded-xl bg-blue-600 text-white text-[8px] font-black mb-2.5 tracking-widest uppercase shadow-md shadow-blue-500/20"
+                    },
+                    data.badge
+                  )
+                : null,
+              React.createElement(
+                "h2",
+                { className: "text-[25px] md:text-[30px] font-black text-slate-900 tracking-tight leading-[1.12]" },
+                data.title
+              )
+            ),
+            React.createElement(
+              "div",
+              { className: "flex-1 flex flex-col justify-start space-y-3 md:space-y-4 relative z-10 overflow-hidden" },
+              data.subtitle
+                ? React.createElement(
+                    "p",
+                    {
+                      className:
+                        "text-[16px] md:text-[18px] font-black text-slate-800 border-l-[6px] border-blue-500 pl-3 py-0.5 whitespace-pre-line leading-[1.2]"
+                    },
+                    data.subtitle
+                  )
+                : null,
+              data.description
+                ? React.createElement(
+                    "p",
+                    { className: "text-[14px] md:text-[16px] text-slate-600 font-bold leading-[1.35] whitespace-pre-line tracking-tight" },
+                    data.description
+                  )
+                : null,
+              data.list
+                ? React.createElement(
+                    "ul",
+                    { className: "space-y-2 md:space-y-2.5" },
+                    data.list.map((item, idx) =>
+                      React.createElement(
+                        "li",
+                        {
+                          key: idx,
+                          className: "flex items-start gap-2.5 text-[14px] md:text-[16px] font-black text-slate-800 leading-[1.2]"
+                        },
+                        React.createElement(
+                          "div",
+                          { className: "mt-[2px] flex-shrink-0 w-6 h-6 rounded-lg bg-blue-100 flex items-center justify-center shadow-sm" },
+                          React.createElement(CheckIcon)
+                        ),
+                        React.createElement("span", { className: "leading-[1.2]" }, item)
+                      )
+                    )
+                  )
+                : null,
+              data.benefits
+                ? React.createElement(
+                    "div",
+                    { className: "space-y-3 md:space-y-4" },
+                    data.benefits.map((benefit, idx) =>
+                      React.createElement(
+                        "div",
+                        {
+                          key: idx,
+                          className:
+                            "bg-white/75 p-4 md:p-6 rounded-[32px] border border-white/90 shadow-lg shadow-blue-900/5 relative overflow-hidden"
+                        },
+                        React.createElement(
+                          "div",
+                          { className: "flex justify-between items-start mb-0.5 relative z-10" },
+                          React.createElement("p", { className: "text-[9px] font-black text-blue-500 uppercase tracking-tighter" }, benefit.label)
+                        ),
+                        React.createElement(
+                          "div",
+                          { className: "text-xl md:text-2xl font-black text-slate-900 tracking-tight relative z-10" },
+                          benefit.value
+                        ),
+                        benefit.sub
+                          ? React.createElement("p", { className: "text-xs text-slate-500 font-bold mt-1 leading-tight relative z-10" }, benefit.sub)
+                          : null
+                      )
+                    )
+                  )
+                : null,
+              data.steps
+                ? React.createElement(
+                    "div",
+                    { className: "space-y-2" },
+                    data.steps.map((step, idx) =>
+                      React.createElement(
+                        "div",
+                        {
+                          key: idx,
+                          className: "flex items-center gap-3 bg-white/45 p-2 rounded-[20px] border border-white/55 shadow-sm"
+                        },
+                        React.createElement(
+                          "div",
+                          {
+                            className:
+                              "flex-shrink-0 w-8 h-8 rounded-[12px] bg-slate-900 text-white flex items-center justify-center text-sm font-black shadow-lg"
+                          },
+                          idx + 1
+                        ),
+                        React.createElement("p", { className: "text-[14px] md:text-[16px] font-black text-slate-800 leading-[1.2]" }, step)
+                      )
+                    )
+                  )
+                : null
+            ),
+            React.createElement(
+              "div",
+              { className: "flex justify-between items-center mt-auto pt-3 border-t border-slate-200/50" },
+              React.createElement(
+                "div",
+                { className: "flex items-center gap-3" },
+                React.createElement(
+                  "div",
+                  { className: "p-2.5 bg-blue-600 rounded-[18px] text-white shadow-lg shadow-blue-500/10 scale-90" },
+                  renderDecorIcon()
+                ),
+                React.createElement(
+                  "div",
+                  null,
+                  React.createElement("p", { className: "text-[8px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1" }, "Ssnim Member"),
+                  React.createElement("p", { className: "text-sm font-black text-slate-900" }, "SEO SU-YEON")
+                )
+              ),
+              React.createElement(
+                "div",
+                { className: "text-right flex flex-col items-end" },
+                React.createElement("span", { className: "text-blue-200 font-black text-3xl leading-none" }, `0${data.id}`),
+                React.createElement("span", { className: "text-[9px] font-black text-blue-300 uppercase mt-0.5" }, "Page")
+              )
+            )
+          )
+        );
+      }
+
+      function App() {
+        const [activePage, setActivePage] = useState(0);
+        const scrollRef = useRef(null);
+
+        const handleScroll = () => {
+          const el = scrollRef.current;
+          if (!el) return;
+          const { scrollLeft, clientWidth } = el;
+          const index = Math.round(scrollLeft / clientWidth);
+          setActivePage(index);
+        };
+
+        const scrollToIndex = (index) => {
+          const el = scrollRef.current;
+          if (!el) return;
+          const targetIndex = Math.max(0, Math.min(index, CARD_DATA.length - 1));
+          el.scrollTo({ left: targetIndex * el.clientWidth, behavior: "smooth" });
+        };
+
+        const openForm = () => {
+          window.open("https://naver.me/xfbUquJM", "_blank");
+        };
+
+        useEffect(() => {
+          const t = setTimeout(() => handleScroll(), 50);
+          return () => clearTimeout(t);
+        }, []);
+
+        return React.createElement(
+          "div",
+          { className: "fixed inset-0 w-full min-h-[100svh] bg-gradient-to-br from-[#e0f2fe] via-white to-[#f1f5f9] flex flex-col overflow-hidden" },
+          React.createElement("div", { className: "absolute top-[-10%] right-[-10%] w-[80%] h-[80%] bg-blue-400/20 blur-[160px] rounded-full animate-pulse" }),
+          React.createElement("div", { className: "absolute bottom-[-10%] left-[-10%] w-[80%] h-[80%] bg-indigo-400/10 blur-[160px] rounded-full" }),
+          React.createElement(
+            "header",
+            { className: "px-6 md:px-10 pt-8 md:pt-12 pb-1 relative z-10 flex justify-between items-end" },
+            React.createElement(
+              "div",
+              null,
+              React.createElement("h1", { className: "text-xl md:text-2xl font-black text-slate-900 tracking-tighter leading-none mb-1" }, COPY.headerTitle),
+              React.createElement("p", { className: "text-[10px] text-blue-600 font-black uppercase tracking-[0.2em]" }, COPY.headerSub)
+            ),
+            React.createElement(
+              "div",
+              { className: "flex gap-1.5 mb-1" },
+              CARD_DATA.map((_, i) =>
+                React.createElement("div", {
+                  key: i,
+                  className: "h-1.5 rounded-full transition-all duration-500 " + (i === activePage ? "w-8 bg-blue-600" : "w-1.5 bg-slate-200")
+                })
+              )
+            )
+          ),
+          React.createElement(
+            "div",
+            { className: "absolute inset-y-0 left-1 w-10 flex items-center justify-center z-30 pointer-events-none" },
+            activePage > 0
+              ? React.createElement(
+                  "button",
+                  {
+                    onClick: () => scrollToIndex(activePage - 1),
+                    className:
+                      "w-9 h-9 rounded-full glass-card flex items-center justify-center text-slate-800 shadow-xl active:scale-90 transition-all pointer-events-auto border-white/50"
+                  },
+                  React.createElement(ChevronLeft)
+                )
+              : null
+          ),
+          React.createElement(
+            "div",
+            { className: "absolute inset-y-0 right-1 w-10 flex items-center justify-center z-30 pointer-events-none" },
+            activePage < CARD_DATA.length - 1
+              ? React.createElement(
+                  "button",
+                  {
+                    onClick: () => scrollToIndex(activePage + 1),
+                    className:
+                      "w-9 h-9 rounded-full glass-card flex items-center justify-center text-slate-800 shadow-xl active:scale-90 transition-all pointer-events-auto border-white/50"
+                  },
+                  React.createElement(ChevronRight)
+                )
+              : null
+          ),
+          React.createElement(
+            "main",
+            { ref: scrollRef, onScroll: handleScroll, className: "flex-1 min-h-0 overflow-x-auto snap-x snap-mandatory no-scrollbar flex items-start relative z-10" },
+            React.createElement(
+              "div",
+              { className: "flex h-fit" },
+              CARD_DATA.map((card) =>
+                React.createElement(
+                  "div",
+                  { key: card.id, className: "w-screen flex justify-center py-2" },
+                  React.createElement(Card, { data: card })
+                )
+              )
+            )
+          ),
+          React.createElement(
+            "footer",
+            { className: "px-6 md:px-10 pb-8 md:pb-12 relative z-20 flex flex-col items-center gap-10" },
+            React.createElement(
+              "div",
+              {
+                className:
+                  "w-full max-w-[420px] bg-white/85 backdrop-blur-2xl border-2 border-blue-500/10 py-3 px-5 rounded-[28px] flex items-center justify-between shadow-lg shadow-blue-500/5 relative"
+              },
+              React.createElement(
+                "div",
+                { className: "flex items-center gap-3" },
+                React.createElement("div", { className: "w-2 h-2 bg-red-500 rounded-full animate-ping" }),
+                React.createElement("p", { className: "text-[9px] font-black text-slate-900 tracking-tight" }, COPY.footerBar)
+              ),
+              React.createElement(
+                "span",
+                { className: "text-[7px] font-black text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full border border-blue-100 uppercase" },
+                "마감임박"
+              )
+            ),
+            React.createElement(
+              "div",
+              { className: "relative w-full max-w-[420px]" },
+              React.createElement(
+                "div",
+                { className: "absolute -top-10 inset-x-0 flex justify-center px-3 z-20 pointer-events-none" },
+                React.createElement(
+                  "div",
+                  {
+                    className:
+                      "bg-red-600 text-white text-[10px] font-black px-3 py-2 rounded-xl shadow-lg shadow-red-900/10 text-center leading-tight max-w-[420px] w-full animate-bounce break-keep whitespace-normal relative after:content-[''] after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:border-[8px] after:border-transparent after:border-t-red-600"
+                  },
+                  COPY.urgencyTop
+                )
+              ),
+              React.createElement(
+                "button",
+                {
+                  onClick: openForm,
+                  className:
+                    "w-full bg-[#03C75A] hover:bg-[#02b351] text-white h-20 rounded-[26px] flex items-center justify-center gap-3 shadow-[0_15px_40px_rgba(3,199,90,0.25)] active:scale-[0.98] transition-all border-b-4 border-[#02b351]"
+                },
+                React.createElement("div", { className: "p-2 bg-black/5 rounded-xl" }, React.createElement(NaverIcon)),
+                React.createElement(
+                  "div",
+                  { className: "flex flex-col items-start" },
+                  React.createElement("span", { className: "text-lg font-black leading-none" }, COPY.ctaTitle),
+                  React.createElement("span", { className: "text-[9px] font-black opacity-50 tracking-widest uppercase mt-0.5" }, COPY.ctaSub)
+                )
+              )
+            )
+          ),
+          React.createElement("div", { className: "fixed top-0 left-0 w-full h-1.5 bg-blue-600 z-50" })
+        );
+      }
+
+      const rootEl = document.getElementById("root");
+      if (!rootEl) throw new Error("Could not find root element to mount to");
+      createRoot(rootEl).render(React.createElement(React.StrictMode, null, React.createElement(App)));
+    </script>
+  </body>
+</html>
