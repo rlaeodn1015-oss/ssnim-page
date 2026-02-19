@@ -1,700 +1,764 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>스승님 X 서수연스승 | 2월 한정 숏게임 실전레슨</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>스승님 | 프리미엄 골프 레슨</title>
 
-    <meta property="og:title" content="스승님 X 서수연스승 | 2월 한정 숏게임 실전레슨" />
-    <meta
-      property="og:description"
-      content="스승님 이벤트 · 정상가 25만원 → 회원가 18만5천원 · 2인 동반 입장료 지원 · 최대 30% 상당 혜택"
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://rlaeodn1015-oss.github.io/ssnim-lesson-landing/" />
-    <meta property="og:image" content="https://rlaeodn1015-oss.github.io/ssnim-lesson-landing/og.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+  <meta property="og:title" content="스승님 | 프리미엄 골프 레슨" />
+  <meta property="og:description" content="숏게임 특가 레슨 + 내 조건 그대로 맞춤 레슨 요청(결제 없음)" />
+  <meta property="og:type" content="website" />
 
-    <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
-    <link
-      rel="stylesheet"
-      as="style"
-      crossorigin
-      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
-    />
-
-    <style>
-      body {
-        font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto,
-          "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
-          "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  <style>
+    body{
+      font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      scroll-behavior:smooth;
+      -webkit-font-smoothing:antialiased;
+      word-break:keep-all;
+      overflow-x:hidden;
+    }
+    .glass-nav{
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+      background-color:rgba(255,255,255,.7);
+    }
+    .fade-in-section{
+      opacity:0;
+      transform:translateY(20px);
+      transition:opacity .8s ease-out,transform .8s ease-out;
+    }
+    .fade-in-section.is-visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+    @media (max-width:640px){
+      .mobile-tight{
+        letter-spacing:-.05em;
+        line-height:1.2;
       }
-      .glass-card {
-        background: rgba(255, 255, 255, 0.5);
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+  </style>
+</head>
+
+<body class="bg-white text-gray-900">
+  <nav class="fixed top-0 left-0 w-full z-50 glass-nav border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <button class="text-xl font-bold tracking-tight text-gray-900 cursor-pointer" id="goTop" type="button">스승님</button>
+      <div class="flex space-x-6 md:space-x-8 text-sm font-medium text-gray-500">
+        <a href="#short-game" class="hover:text-black transition-colors">숏게임 레슨</a>
+        <a href="#custom-lesson" class="hover:text-black transition-colors">맞춤 레슨</a>
+        <a href="#reviews" class="hover:text-black transition-colors">수강 후기</a>
+        <a href="http://pf.kakao.com/_kxawRn/chat" target="_blank" rel="noreferrer" class="hover:text-black transition-colors text-emerald-600 font-bold">문의하기</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="relative min-h-screen bg-white pt-[72px]">
+    <section class="relative h-[calc(100vh-72px)] flex flex-col justify-center items-center text-center px-6 overflow-hidden bg-[#FBFBFB]">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] pointer-events-none opacity-20">
+        <div class="absolute w-[600px] h-[600px] bg-emerald-50 rounded-full blur-[120px] -top-20 -left-20"></div>
+        <div class="absolute w-[400px] h-[400px] bg-slate-100 rounded-full blur-[100px] bottom-0 right-0"></div>
+      </div>
+
+      <div class="fade-in-section max-w-4xl relative z-10 w-full">
+        <h1 class="text-[32px] sm:text-5xl md:text-7xl font-bold tracking-tight text-gray-900 leading-[1.2] md:leading-[1.15] mb-6 md:mb-8 mobile-tight px-2">
+          레슨은 내가 고르고,<br class="sm:hidden" />
+          아니면 시작하지 않습니다
+        </h1>
+        <p class="text-base md:text-2xl text-gray-500 mb-10 md:mb-12 font-light max-w-2xl mx-auto leading-relaxed px-4 md:px-0">
+          내 마음대로 고르는 숏게임 특가 레슨부터<br class="hidden md:block" />
+          내 조건에 딱 맞는 스승님 추천까지
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center w-full px-4 md:px-0">
+          <a href="#short-game" class="w-full sm:w-auto px-8 py-4 bg-black text-white rounded-full text-base md:text-lg font-medium hover:scale-105 transition-transform">숏게임 레슨 신청</a>
+          <a href="#custom-lesson" class="w-full sm:w-auto px-8 py-4 bg-white text-black border border-gray-200 rounded-full text-base md:text-lg font-medium hover:bg-gray-50 transition-colors">맞춤 레슨 요청 (결제없음)</a>
+        </div>
+      </div>
+
+      <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+        <svg class="w-5 h-5 md:w-6 md:h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+      </div>
+    </section>
+
+    <section id="short-game" class="py-20 px-6 md:py-32 bg-white scroll-mt-20">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div class="fade-in-section">
+          <div class="relative rounded-[32px] md:rounded-[40px] overflow-hidden bg-gray-50 aspect-[4/5] md:aspect-video lg:aspect-square group shadow-2xl shadow-gray-200/50">
+            <div class="absolute inset-0 bg-[#F2F4F7]">
+              <div class="absolute top-[-10%] right-[-10%] w-[80%] h-[80%] bg-emerald-100 rounded-full blur-[80px] opacity-60 animate-pulse"></div>
+              <div class="absolute bottom-[-5%] left-[-5%] w-[60%] h-[60%] bg-blue-50 rounded-full blur-[60px] opacity-40"></div>
+            </div>
+
+            <svg class="absolute bottom-0 left-0 w-full opacity-20" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M0 150C100 120 300 180 400 130V200H0V150Z" fill="url(#paint0_linear)" />
+              <defs>
+                <linearGradient id="paint0_linear" x1="200" y1="130" x2="200" y2="200" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#10B981" />
+                  <stop offset="1" stop-color="#059669" stop-opacity="0" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            <div class="absolute inset-0 flex items-center justify-center p-6 z-10 transition-transform duration-700 group-hover:scale-105" id="shortgameVisual">
+              <img
+                src="assets/shortgame_pro.png"
+                alt="스승님 X 서수연 프로"
+                class="w-full h-full object-contain drop-shadow-[0_20px_20px_rgba(0,0,0,0.1)]"
+                id="shortgameImg"
+              />
+            </div>
+
+            <div class="absolute bottom-6 left-6 right-6 z-20 glass-nav bg-white/40 border border-white/40 p-4 rounded-xl flex justify-between items-center">
+              <div>
+                <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Lesson Spot</p>
+                <p class="text-xs font-semibold text-gray-900">판교 백야드 & 필드</p>
+              </div>
+              <div class="text-right">
+                <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Available Now</p>
+                <p class="text-xs font-semibold text-emerald-600">선착순 마감주의</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fade-in-section">
+          <div class="space-y-6 md:space-y-8">
+            <div>
+              <h2 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight">숏게임 실전 레슨</h2>
+              <p class="text-gray-500 text-base md:text-lg leading-relaxed font-light">
+                장소: 판교 백야드(실내) & 야외 숏게임장<br />
+                혜택: 2인 동반 시 이용료 최대 2만원 지원
+              </p>
+            </div>
+
+            <div class="flex items-baseline gap-2 pb-4 border-b border-gray-100">
+              <span class="text-gray-300 line-through text-sm">250,000원</span>
+              <span class="font-bold text-3xl text-emerald-600">185,000<span class="text-lg font-normal">원</span></span>
+            </div>
+
+            <div id="shortGameSuccess" class="hidden bg-emerald-50 p-10 md:p-12 rounded-2xl text-center border border-emerald-100">
+              <div class="text-3xl mb-3">✅</div>
+              <h4 class="text-lg font-bold text-emerald-900 mb-1">신청이 완료되었습니다</h4>
+              <p class="text-emerald-700 text-xs font-light">확인 후 1시간 내로 담당자가 연락드리겠습니다</p>
+            </div>
+
+            <form id="shortGameForm" class="bg-gray-50 p-6 md:p-8 rounded-2xl space-y-4 border border-gray-100 shadow-inner">
+              <h4 class="text-base md:text-lg font-semibold mb-1">지금 바로 신청하세요</h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <input required name="이름" type="text" placeholder="이름" class="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl outline-none focus:border-black transition-colors text-sm" />
+                <input required name="연락처" type="tel" placeholder="연락처" class="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl outline-none focus:border-black transition-colors text-sm" />
+              </div>
+              <input required name="희망일정" type="text" placeholder="희망 일정 (예: 평일 오전)" class="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl outline-none focus:border-black transition-colors text-sm" />
+              <select name="인원" class="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl outline-none focus:border-black transition-colors appearance-none text-sm">
+                <option value="1">1인 신청</option>
+                <option value="2">2인 동반 (혜택 적용)</option>
+              </select>
+              <button id="shortGameSubmit" type="submit" class="w-full py-4 bg-black text-white rounded-xl font-bold hover:bg-gray-800 transition-all mt-2 disabled:bg-gray-400 shadow-lg shadow-gray-200">
+                숏게임 레슨 신청하기
+              </button>
+              <p id="shortGameError" class="hidden text-xs text-red-500 font-medium">전송에 실패했습니다. 잠시 후 다시 시도해주세요.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="custom-lesson" class="py-20 px-6 md:py-32 bg-[#F9FAFB] scroll-mt-20">
+      <div class="max-w-4xl mx-auto text-center mb-12 md:mb-16">
+        <div class="fade-in-section">
+          <span class="text-emerald-600 font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 md:mb-4 block">Personalized Matching</span>
+          <h2 class="text-3xl md:text-5xl font-bold mb-4 md:mb-6 tracking-tight">내 조건 그대로, 맞춤 레슨</h2>
+          <p class="text-gray-400 text-base md:text-lg font-light italic px-4">"결제는 스승님이 마음에 들었을 때 결정하세요"</p>
+        </div>
+      </div>
+
+      <div class="fade-in-section max-w-3xl mx-auto">
+        <div id="customSuccess" class="hidden bg-white p-10 md:p-16 rounded-[32px] text-center border border-emerald-100 shadow-2xl shadow-gray-100">
+          <div class="text-4xl md:text-5xl mb-6">🎯</div>
+          <h4 class="text-xl md:text-2xl font-bold text-gray-900 mb-3">요청이 접수되었습니다</h4>
+          <p class="text-gray-500 mb-8 md:mb-10 font-light text-sm md:text-base leading-relaxed">
+            입력하신 정보를 바탕으로 가장 적합한 프로님<br class="md:hidden" />
+            최대 3분을 1시간 내로 안내해 드리겠습니다
+          </p>
+          <a href="http://pf.kakao.com/_kxawRn/chat" target="_blank" rel="noreferrer" class="inline-block px-8 md:px-10 py-4 md:py-5 bg-[#FEE500] text-[#3c1e1e] rounded-2xl font-bold text-sm md:text-base hover:scale-105 transition-transform">
+            카카오톡 채널로 바로 문의하기
+          </a>
+        </div>
+
+        <div id="customCard" class="bg-white p-6 md:p-12 rounded-[32px] shadow-sm border border-gray-100">
+          <form id="customForm" class="space-y-6 md:space-y-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+              <div class="space-y-2">
+                <label class="text-[10px] font-bold text-gray-400 ml-1 uppercase tracking-tighter">희망 지역</label>
+                <input required name="지역" type="text" placeholder="예: 서울 강남구" class="w-full px-4 py-4 bg-gray-50 border border-transparent rounded-2xl outline-none focus:bg-white focus:border-emerald-200 transition-all text-sm" />
+              </div>
+
+              <div class="space-y-2">
+                <label class="text-[10px] font-bold text-gray-400 ml-1 uppercase tracking-tighter">희망 예산 (1회 기준)</label>
+                <select name="예산" class="w-full px-4 py-4 bg-gray-50 border border-transparent rounded-2xl outline-none focus:bg-white focus:border-emerald-200 transition-all appearance-none text-sm">
+                  <option value="10">10만원 이하</option>
+                  <option value="13" selected>13만원 (추천)</option>
+                  <option value="15">15만원 이상</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <label class="text-[10px] font-bold text-gray-400 ml-1 uppercase tracking-tighter">레슨 고민 사항</label>
+              <textarea required name="고민사항" placeholder="예: 비거리 교정, 슬라이스 방지 등" class="w-full px-4 py-4 bg-gray-50 border border-transparent rounded-2xl outline-none focus:bg-white focus:border-emerald-200 transition-all h-28 md:h-32 resize-none text-sm"></textarea>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+              <div class="space-y-2">
+                <label class="text-[10px] font-bold text-gray-400 ml-1 uppercase tracking-tighter">희망 횟수</label>
+                <div class="flex gap-2 md:gap-4">
+                  <label class="flex-1 flex items-center justify-center border border-gray-100 py-3 rounded-xl cursor-pointer hover:bg-gray-50 text-[10px] md:text-xs font-medium">
+                    <input type="radio" name="횟수" value="1회 체험" class="mr-1.5" required /> 1회 체험
+                  </label>
+                  <label class="flex-1 flex items-center justify-center border border-gray-100 py-3 rounded-xl cursor-pointer hover:bg-gray-50 text-[10px] md:text-xs font-medium">
+                    <input type="radio" name="횟수" value="5회" class="mr-1.5" /> 5회
+                  </label>
+                  <label class="flex-1 flex items-center justify-center border border-gray-100 py-3 rounded-xl cursor-pointer hover:bg-gray-50 text-[10px] md:text-xs font-medium">
+                    <input type="radio" name="횟수" value="10회+" class="mr-1.5" /> 10회+
+                  </label>
+                </div>
+              </div>
+
+              <div class="space-y-2">
+                <label class="text-[10px] font-bold text-gray-400 ml-1 uppercase tracking-tighter">연락처</label>
+                <input required name="연락처" type="tel" placeholder="010-0000-0000" class="w-full px-4 py-4 bg-gray-50 border border-transparent rounded-2xl outline-none focus:bg-white focus:border-emerald-200 transition-all text-sm" />
+              </div>
+            </div>
+
+            <div class="pt-2 text-center">
+              <p class="text-[9px] text-gray-400 mb-6 tracking-tight italic">“본 서비스는 결제 없는 무료 매칭이며, 조건 확인 후 진행 여부를 결정하세요”</p>
+              <button id="customSubmit" type="submit" class="w-full md:w-2/3 py-4 md:py-5 bg-black text-white rounded-2xl text-base md:text-lg font-bold hover:bg-gray-800 transition-all shadow-xl shadow-gray-200 disabled:bg-gray-400">
+                맞춤 스승님 찾기
+              </button>
+              <p id="customError" class="hidden mt-4 text-xs text-red-500 font-medium">전송에 실패했습니다. 잠시 후 다시 시도해주세요.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 px-6 md:py-32 bg-white">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          <div class="fade-in-section">
+            <div class="h-full bg-white border border-gray-100 p-8 rounded-3xl hover:shadow-xl hover:shadow-gray-100 transition-all group flex flex-col justify-between">
+              <div>
+                <div class="text-4xl mb-6 grayscale group-hover:grayscale-0 transition-all">🎯</div>
+                <h3 class="text-lg font-bold mb-3">1회 경험 후 결정</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">고가의 패키지 결제 전, 1회 레슨으로 결정하세요</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="fade-in-section">
+            <div class="h-full bg-white border border-gray-100 p-8 rounded-3xl hover:shadow-xl hover:shadow-gray-100 transition-all group flex flex-col justify-between">
+              <div>
+                <div class="text-4xl mb-6 grayscale group-hover:grayscale-0 transition-all">🕊️</div>
+                <h3 class="text-lg font-bold mb-3">패키지 강요 없음</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">필요한 만큼만, 합리적인 횟수로 진행합니다</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="fade-in-section">
+            <div class="h-full bg-white border border-gray-100 p-8 rounded-3xl hover:shadow-xl hover:shadow-gray-100 transition-all group flex flex-col justify-between">
+              <div>
+                <div class="text-4xl mb-6 grayscale group-hover:grayscale-0 transition-all">🤝</div>
+                <h3 class="text-lg font-bold mb-3">조건 맞춤 연결</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">지역, 예산, 고민에 맞는 최적의 프로만 연결합니다</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="fade-in-section">
+            <div class="h-full bg-white border border-gray-100 p-8 rounded-3xl hover:shadow-xl hover:shadow-gray-100 transition-all group flex flex-col justify-between">
+              <div>
+                <div class="text-4xl mb-6 grayscale group-hover:grayscale-0 transition-all">⛳</div>
+                <h3 class="text-lg font-bold mb-3">실전 중심 레슨</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">연습장이 아닌 필드에서 통하는 기술을 배웁니다</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="fade-in-section">
+            <div class="h-full bg-white border border-gray-100 p-8 rounded-3xl hover:shadow-xl hover:shadow-gray-100 transition-all group flex flex-col justify-between">
+              <div>
+                <div class="text-4xl mb-6 grayscale group-hover:grayscale-0 transition-all">🛡️</div>
+                <h3 class="text-lg font-bold mb-3">운영팀 직접 관리</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">불편함 없도록 스승님 운영팀이 상시 모니터링합니다</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews" class="py-20 px-6 md:py-32 bg-[#F9FAFB] scroll-mt-20">
+      <div class="max-w-7xl mx-auto">
+        <div class="fade-in-section text-center mb-12 md:mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">수강생의 리얼한 목소리</h2>
+          <p class="text-gray-400 font-light text-sm md:text-base">직접 경험한 분들의 생생한 후기입니다</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="fade-in-section">
+            <div class="bg-white p-8 md:p-10 rounded-[32px] border border-gray-100 h-full flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+              <p class="text-base md:text-lg text-gray-700 leading-relaxed italic mb-8 font-light">"기본기부터 차근차근 알려줘 처음 배우는 사람도 이해가 정말 쉬워요"</p>
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-emerald-50 rounded-full flex items-center justify-center text-[10px] text-emerald-600 font-bold">Best</div>
+                <span class="font-semibold text-gray-900 text-sm">김*현 수강생</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="fade-in-section">
+            <div class="bg-white p-8 md:p-10 rounded-[32px] border border-gray-100 h-full flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+              <p class="text-base md:text-lg text-gray-700 leading-relaxed italic mb-8 font-light">"자세를 세세하게 잡아줘서 비거리와 정확도가 한 번에 개선되었습니다"</p>
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-emerald-50 rounded-full flex items-center justify-center text-[10px] text-emerald-600 font-bold">Best</div>
+                <span class="font-semibold text-gray-900 text-sm">이*원 수강생</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="fade-in-section">
+            <div class="bg-white p-8 md:p-10 rounded-[32px] border border-gray-100 h-full flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+              <p class="text-base md:text-lg text-gray-700 leading-relaxed italic mb-8 font-light">"개인 수준에 맞춰 설명해 부담이 없고 분위기가 너무 편안해요"</p>
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-emerald-50 rounded-full flex items-center justify-center text-[10px] text-emerald-600 font-bold">Best</div>
+                <span class="font-semibold text-gray-900 text-sm">박*준 수강생</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="fade-in-section">
+            <div class="bg-white p-8 md:p-10 rounded-[32px] border border-gray-100 h-full flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+              <p class="text-base md:text-lg text-gray-700 leading-relaxed italic mb-8 font-light">"단순 교정이 아니라 앞으로의 연습 방향까지 제시해줘서 대만족입니다"</p>
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-emerald-50 rounded-full flex items-center justify-center text-[10px] text-emerald-600 font-bold">Best</div>
+                <span class="font-semibold text-gray-900 text-sm">최*아 수강생</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="fade-in-section">
+            <div class="bg-white p-8 md:p-10 rounded-[32px] border border-gray-100 h-full flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+              <p class="text-base md:text-lg text-gray-700 leading-relaxed italic mb-8 font-light">"프로님의 친절함과 전문성에 반해 벌써 지인 3명에게 추천했어요"</p>
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-emerald-50 rounded-full flex items-center justify-center text-[10px] text-emerald-600 font-bold">Best</div>
+                <span class="font-semibold text-gray-900 text-sm">정*우 수강생</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="fade-in-section">
+            <div class="bg-white p-8 md:p-10 rounded-[32px] border border-gray-100 h-full flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+              <p class="text-base md:text-lg text-gray-700 leading-relaxed italic mb-8 font-light">"설명도 명확하고 피드백이 빨라서, 레슨이 끝나도 남는 게 많았습니다"</p>
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-emerald-50 rounded-full flex items-center justify-center text-[10px] text-emerald-600 font-bold">Best</div>
+                <span class="font-semibold text-gray-900 text-sm">박*준 수강생</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 px-6 md:py-32 bg-white">
+      <div class="max-w-5xl mx-auto">
+        <div class="fade-in-section text-center mb-12 md:mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">나에게 맞는 레슨은?</h2>
+          <p class="text-gray-400 font-light text-sm md:text-base">목적과 환경에 맞는 최적의 선택을 도와드립니다</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 md:hidden">
+          <div class="fade-in-section">
+            <div class="bg-white border-2 border-emerald-500 rounded-[32px] p-8 shadow-xl shadow-emerald-50/50">
+              <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold">숏게임 실전 레슨</h3>
+                <span class="bg-emerald-500 text-white text-[10px] px-3 py-1 rounded-full font-bold">인기</span>
+              </div>
+              <ul class="space-y-4">
+                <li class="flex flex-col">
+                  <span class="text-gray-400 text-[10px] uppercase font-bold tracking-widest">타겟</span>
+                  <span class="text-gray-900 font-medium">시즌 대비 / 필드 실전력 강화</span>
+                </li>
+                <li class="flex flex-col">
+                  <span class="text-gray-400 text-[10px] uppercase font-bold tracking-widest">진행 방식</span>
+                  <span class="text-gray-900 font-medium">판교 스튜디오 + 파3 필드</span>
+                </li>
+                <li class="flex flex-col">
+                  <span class="text-gray-400 text-[10px] uppercase font-bold tracking-widest">특별 혜택</span>
+                  <span class="text-emerald-600 font-bold">이용료 최대 2만원 지원</span>
+                </li>
+                <li class="flex flex-col">
+                  <span class="text-gray-400 text-[10px] uppercase font-bold tracking-widest">가격</span>
+                  <span class="text-gray-900 font-bold text-xl">특별가 18.5만원</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="fade-in-section">
+            <div class="bg-gray-50 border border-gray-100 rounded-[32px] p-8">
+              <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold">맞춤 레슨 요청</h3>
+                <span class="bg-gray-200 text-gray-500 text-[10px] px-3 py-1 rounded-full font-bold">무료 매칭</span>
+              </div>
+              <ul class="space-y-4">
+                <li class="flex flex-col">
+                  <span class="text-gray-400 text-[10px] uppercase font-bold tracking-widest">타겟</span>
+                  <span class="text-gray-900 font-medium">내 고민·예산·지역 맞춤</span>
+                </li>
+                <li class="flex flex-col">
+                  <span class="text-gray-400 text-[10px] uppercase font-bold tracking-widest">진행 방식</span>
+                  <span class="text-gray-900 font-medium">요청 후 스승 연결 (최대 3인)</span>
+                </li>
+                <li class="flex flex-col">
+                  <span class="text-gray-400 text-[10px] uppercase font-bold tracking-widest">특징</span>
+                  <span class="text-gray-900 font-bold">결제 없는 관심 접수</span>
+                </li>
+                <li class="flex flex-col">
+                  <span class="text-gray-400 text-[10px] uppercase font-bold tracking-widest">가격</span>
+                  <span class="text-gray-900 font-medium">평균 13만원 내외 (체험형)</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="hidden md:block">
+          <div class="fade-in-section overflow-hidden rounded-[40px] border border-gray-100 shadow-sm">
+            <table class="w-full border-collapse">
+              <thead class="bg-gray-50 border-b border-gray-100">
+                <tr>
+                  <th class="p-8 text-left font-bold text-gray-400 uppercase text-xs tracking-widest">구분</th>
+                  <th class="p-8 text-center text-xl font-bold">숏게임 실전 레슨</th>
+                  <th class="p-8 text-center text-xl font-bold">맞춤 레슨 요청</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-50">
+                <tr class="hover:bg-gray-50/30 transition-colors">
+                  <td class="p-8 text-gray-500 font-medium text-sm">타겟</td>
+                  <td class="p-8 text-center text-base font-semibold">시즌 대비 / 필드 실전력 강화</td>
+                  <td class="p-8 text-center text-base">내 고민·예산·지역 맞춤</td>
+                </tr>
+                <tr class="hover:bg-gray-50/30 transition-colors">
+                  <td class="p-8 text-gray-500 font-medium text-sm">진행 방식</td>
+                  <td class="p-8 text-center text-base font-semibold">판교 스튜디오 + 파3 필드</td>
+                  <td class="p-8 text-center text-base">요청 후 스승 연결 (최대 3인)</td>
+                </tr>
+                <tr class="hover:bg-gray-50/30 transition-colors">
+                  <td class="p-8 text-gray-500 font-medium text-sm">특징 / 혜택</td>
+                  <td class="p-8 text-center text-emerald-600 font-bold text-base">이용료 최대 2만원 지원</td>
+                  <td class="p-8 text-center font-bold text-base">결제 없는 관심 접수</td>
+                </tr>
+                <tr class="hover:bg-gray-50/30 transition-colors">
+                  <td class="p-8 text-gray-500 font-medium text-sm">가격대</td>
+                  <td class="p-8 text-center text-xl font-bold text-gray-900">특별가 18.5만원</td>
+                  <td class="p-8 text-center text-base">평균 13만원 내외 (체험형)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="py-24 px-6 md:py-32 bg-[#F9FAFB] scroll-mt-24">
+      <div class="max-w-3xl mx-auto">
+        <div class="fade-in-section text-center mb-16">
+          <h2 class="text-4xl font-bold tracking-tight">자주 묻는 질문</h2>
+        </div>
+
+        <div class="space-y-4" id="faqList">
+          <div class="fade-in-section bg-white rounded-2xl border border-gray-100 overflow-hidden">
+            <button type="button" class="faq-btn w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors" aria-expanded="false">
+              <span class="font-semibold text-gray-900">맞춤 요청을 하면 바로 레슨이 시작되나요?</span>
+              <span class="faq-icon transform transition-transform">
+                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+              </span>
+            </button>
+            <div class="faq-panel hidden px-8 pb-6 text-gray-500 text-sm leading-relaxed border-t border-gray-50 pt-4">
+              아닙니다 먼저 프로님의 프로필과 가능한 일정을 안내드립니다 확인 후 진행 의사를 밝혀주시면 연결됩니다
+            </div>
+          </div>
+
+          <div class="fade-in-section bg-white rounded-2xl border border-gray-100 overflow-hidden">
+            <button type="button" class="faq-btn w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors" aria-expanded="false">
+              <span class="font-semibold text-gray-900">여러 프로님께 연락이 오면 번거롭지 않을까요?</span>
+              <span class="faq-icon transform transition-transform">
+                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+              </span>
+            </button>
+            <div class="faq-panel hidden px-8 pb-6 text-gray-500 text-sm leading-relaxed border-t border-gray-50 pt-4">
+              운영팀이 최적의 프로님 최대 3분만 엄선하여 안내드리며, 스승님 카카오톡 채널을 통해서만 연락을 주고받으실 수 있습니다
+            </div>
+          </div>
+
+          <div class="fade-in-section bg-white rounded-2xl border border-gray-100 overflow-hidden">
+            <button type="button" class="faq-btn w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors" aria-expanded="false">
+              <span class="font-semibold text-gray-900">결제는 언제 어떻게 진행하나요?</span>
+              <span class="faq-icon transform transition-transform">
+                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+              </span>
+            </button>
+            <div class="faq-panel hidden px-8 pb-6 text-gray-500 text-sm leading-relaxed border-t border-gray-50 pt-4">
+              매칭된 프로님과 일정을 최종 확정한 뒤 결제하시면 됩니다 체험형은 1회분만 먼저 결제 가능합니다
+            </div>
+          </div>
+
+          <div class="fade-in-section bg-white rounded-2xl border border-gray-100 overflow-hidden">
+            <button type="button" class="faq-btn w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors" aria-expanded="false">
+              <span class="font-semibold text-gray-900">환불이나 취소 규정은 어떻게 되나요?</span>
+              <span class="faq-icon transform transition-transform">
+                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+              </span>
+            </button>
+            <div class="faq-panel hidden px-8 pb-6 text-gray-500 text-sm leading-relaxed border-t border-gray-50 pt-4">
+              레슨 24시간 전까지는 100% 환불이 가능하며, 운영팀이 중재하여 안전한 결제 환경을 보장합니다
+            </div>
+          </div>
+
+          <div class="fade-in-section bg-white rounded-2xl border border-gray-100 overflow-hidden">
+            <button type="button" class="faq-btn w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors" aria-expanded="false">
+              <span class="font-semibold text-gray-900">완전 초보인데도 수강이 가능한가요?</span>
+              <span class="faq-icon transform transition-transform">
+                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+              </span>
+            </button>
+            <div class="faq-panel hidden px-8 pb-6 text-gray-500 text-sm leading-relaxed border-t border-gray-50 pt-4">
+              네 기초 스윙부터 풀스윙까지 단계별로 지도하는 프로님들이 계시며, 맞춤 요청 시 '초보'임을 기재해주시면 더욱 적합한 분을 매칭해드립니다
+            </div>
+          </div>
+
+          <div class="fade-in-section bg-white rounded-2xl border border-gray-100 overflow-hidden">
+            <button type="button" class="faq-btn w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors" aria-expanded="false">
+              <span class="font-semibold text-gray-900">전국 어디서나 가능한가요?</span>
+              <span class="faq-icon transform transition-transform">
+                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+              </span>
+            </button>
+            <div class="faq-panel hidden px-8 pb-6 text-gray-500 text-sm leading-relaxed border-t border-gray-50 pt-4">
+              현재 서울, 경기 지역을 중심으로 운영 중이며, 점차 확대하고 있습니다 지역 정보를 남겨주시면 가능 여부를 확인해드립니다
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-white border-t border-gray-100 py-20 px-6">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
+        <div class="space-y-4">
+          <div class="text-2xl font-bold tracking-tight">스승님</div>
+          <p class="text-gray-400 text-sm max-w-sm font-light">
+            당신에게 가장 필요한 단 한 명의 스승을 연결합니다<br />
+            실전과 맞춤형 연결을 통해 골프 라이프를 혁신하세요
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-12 text-sm">
+          <div class="space-y-3">
+            <h5 class="font-bold text-gray-900">COMPANY</h5>
+            <ul class="text-gray-400 space-y-2 font-light">
+              <li class="hover:text-black cursor-pointer">이용약관</li>
+              <li class="hover:text-black cursor-pointer">개인정보처리방침</li>
+              <li class="hover:text-black cursor-pointer">사업자 정보</li>
+            </ul>
+          </div>
+
+          <div class="space-y-3">
+            <h5 class="font-bold text-gray-900">CONTACT</h5>
+            <ul class="text-gray-400 space-y-2 font-light">
+              <li><a href="http://pf.kakao.com/_kxawRn/chat" class="hover:text-black">카카오톡 @스승님</a></li>
+              <li><a href="mailto:contact@seuseungnim.com" class="hover:text-black">contact@seuseungnim.com</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto mt-20 pt-8 border-t border-gray-50 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-gray-300 uppercase tracking-widest">
+        <span>© 2024 Seuseungnim All rights reserved</span>
+        <div class="flex gap-4">
+          <span class="hover:text-gray-600 cursor-pointer">Instagram</span>
+          <span class="hover:text-gray-600 cursor-pointer">Blog</span>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <div class="md:hidden fixed bottom-0 left-0 w-full p-4 bg-gradient-to-t from-white via-white/90 to-transparent z-50">
+    <div class="flex gap-2">
+      <a href="#short-game" class="flex-1 py-4 bg-gray-100 text-black text-center rounded-2xl font-bold text-sm">숏게임 신청</a>
+      <a href="#custom-lesson" class="flex-1 py-4 bg-black text-white text-center rounded-2xl font-bold text-sm shadow-lg shadow-gray-200">맞춤레슨 요청</a>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var FORM_ENDPOINT = "https://formspree.io/f/mbdakbon";
+
+      var goTop = document.getElementById("goTop");
+      if (goTop) {
+        goTop.addEventListener("click", function () {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
       }
-      .no-scrollbar::-webkit-scrollbar {
-        display: none;
-      }
-      .no-scrollbar {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-    </style>
 
-    <script type="importmap">
-      {
-        "imports": {
-          "react": "https://esm.sh/react@19.2.0",
-          "react-dom/client": "https://esm.sh/react-dom@19.2.0/client"
-        }
-      }
-    </script>
-  </head>
-
-  <body class="bg-slate-50 overflow-hidden">
-    <div id="root"></div>
-
-    <script type="module">
-      import React, { useEffect, useRef, useState } from "react";
-      import { createRoot } from "react-dom/client";
-
-      const GolfBall3D = () =>
-        React.createElement(
-          "svg",
-          { width: 80, height: 80, viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
-          React.createElement(
-            "defs",
-            null,
-            React.createElement(
-              "linearGradient",
-              { id: "ballGrad", x1: "0%", y1: "0%", x2: "100%", y2: "100%" },
-              React.createElement("stop", { offset: "0%", stopColor: "#ffffff" }),
-              React.createElement("stop", { offset: "100%", stopColor: "#cbd5e1" })
-            ),
-            React.createElement(
-              "filter",
-              { id: "shadow", x: "-20%", y: "-20%", width: "140%", height: "140%" },
-              React.createElement("feGaussianBlur", { in: "SourceAlpha", stdDeviation: "1" }),
-              React.createElement("feOffset", { dx: "1", dy: "1", result: "offsetblur" }),
-              React.createElement(
-                "feComponentTransfer",
-                null,
-                React.createElement("feFuncA", { type: "linear", slope: "0.3" })
-              ),
-              React.createElement(
-                "feMerge",
-                null,
-                React.createElement("feMergeNode", null),
-                React.createElement("feMergeNode", { in: "SourceGraphic" })
-              )
-            )
-          ),
-          React.createElement("circle", { cx: 12, cy: 12, r: 10, fill: "url(#ballGrad)", filter: "url(#shadow)" }),
-          React.createElement("circle", { cx: 8, cy: 8, r: 1.2, fill: "#94a3b8" }),
-          React.createElement("circle", { cx: 12, cy: 7, r: 1.2, fill: "#94a3b8" }),
-          React.createElement("circle", { cx: 16, cy: 9, r: 1.2, fill: "#94a3b8" }),
-          React.createElement("circle", { cx: 9, cy: 13, r: 1.2, fill: "#94a3b8" }),
-          React.createElement("circle", { cx: 13, cy: 16, r: 1.2, fill: "#94a3b8" }),
-          React.createElement("circle", { cx: 17, cy: 14, r: 1.2, fill: "#94a3b8" })
-        );
-
-      const Trophy3D = () =>
-        React.createElement(
-          "svg",
-          { width: 80, height: 80, viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
-          React.createElement(
-            "defs",
-            null,
-            React.createElement(
-              "linearGradient",
-              { id: "goldGrad", x1: "0%", y1: "0%", x2: "100%", y2: "100%" },
-              React.createElement("stop", { offset: "0%", stopColor: "#fbbf24" }),
-              React.createElement("stop", { offset: "100%", stopColor: "#d97706" })
-            )
-          ),
-          React.createElement("path", {
-            d: "M6 9H4.5C3.67157 9 3 8.32843 3 7.5V6.5C3 5.67157 3.67157 5 4.5 5H6V9ZM18 9H19.5C20.3284 9 21 8.32843 21 7.5V6.5C21 5.67157 20.3284 5 19.5 5H18V9Z",
-            fill: "url(#goldGrad)"
-          }),
-          React.createElement("path", {
-            d: "M6 5H18V12C18 15.3137 15.3137 18 12 18C8.68629 18 6 15.3137 6 12V5Z",
-            fill: "url(#goldGrad)"
-          }),
-          React.createElement("path", { d: "M10 22H14V18H10V22Z", fill: "#b45309" })
-        );
-
-      const Coin3D = () =>
-        React.createElement(
-          "svg",
-          { width: 80, height: 80, viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
-          React.createElement("circle", { cx: 12, cy: 12, r: 9, fill: "#fbbf24" }),
-          React.createElement("circle", { cx: 12, cy: 12, r: 7, stroke: "#d97706", strokeWidth: 2 }),
-          React.createElement(
-            "text",
-            { x: 12, y: 16, fontSize: 8, fontWeight: "black", textAnchor: "middle", fill: "#d97706" },
-            "%"
-          )
-        );
-
-      const Location3D = () =>
-        React.createElement(
-          "svg",
-          { width: 80, height: 80, viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
-          React.createElement("path", {
-            d: "M12 21C12 21 20 13.5 20 8C20 3.58172 16.4183 0 12 0C7.58172 0 4 3.58172 4 8C4 13.5 12 21 12 21Z",
-            fill: "#3b82f6"
-          }),
-          React.createElement("circle", { cx: 12, cy: 8, r: 3, fill: "white" })
-        );
-
-      const CheckIcon = () =>
-        React.createElement(
-          "svg",
-          {
-            width: 24,
-            height: 24,
-            viewBox: "0 0 24 24",
-            fill: "none",
-            stroke: "currentColor",
-            strokeWidth: 4,
-            strokeLinecap: "round",
-            strokeLinejoin: "round",
-            className: "text-blue-600"
-          },
-          React.createElement("polyline", { points: "20 6 9 17 4 12" })
-        );
-
-      const NaverIcon = () =>
-        React.createElement(
-          "svg",
-          { width: 22, height: 22, viewBox: "0 0 24 24", fill: "white" },
-          React.createElement("path", { d: "M4 3h5.2l5.6 8V3H20v18h-5.2l-5.6-8v8H4V3z" })
-        );
-
-      const ChevronLeft = () =>
-        React.createElement(
-          "svg",
-          {
-            width: 24,
-            height: 24,
-            viewBox: "0 0 24 24",
-            fill: "none",
-            stroke: "currentColor",
-            strokeWidth: 3.5,
-            strokeLinecap: "round",
-            strokeLinejoin: "round"
-          },
-          React.createElement("polyline", { points: "15 18 9 12 15 6" })
-        );
-
-      const ChevronRight = () =>
-        React.createElement(
-          "svg",
-          {
-            width: 24,
-            height: 24,
-            viewBox: "0 0 24 24",
-            fill: "none",
-            stroke: "currentColor",
-            strokeWidth: 3.5,
-            strokeLinecap: "round",
-            strokeLinejoin: "round"
-          },
-          React.createElement("polyline", { points: "9 18 15 12 9 6" })
-        );
-
-      const COPY = {
-        headerTitle: "스승님 X 서수연스승",
-        headerSub: "2월 한정 특별 숏게임 실전레슨",
-        urgencyTop: "2월 마지막 7팀 모집 · 선착순 마감 임박",
-        footerBar: "스승님 이벤트 18만5천원 · 2인 입장료 지원 · 최대 30% 상당 혜택",
-        ctaTitle: "숏게임 실전레슨 문의/신청",
-        ctaSub: "10초 신청"
-      };
-
-      const CARD_DATA = [
-        {
-          id: 1,
-          badge: "APP MEMBER FIRST NOTICE",
-          title: React.createElement(
-            "div",
-            { className: "leading-tight" },
-            "스승님 선착순 이벤트",
-            React.createElement("br"),
-            React.createElement("span", { className: "text-blue-600" }, "2월 한정 숏게임, 파3레슨"),
-            React.createElement("br"),
-            "선착순 마감"
-          ),
-          subtitle: "시즌 시작 전,\n숏게임만 잘하면 스코어가 바뀝니다.\n\n소수 프라이빗 레슨으로\n조기 마감될 수 있어요.",
-          iconType: "ball"
-        },
-        {
-          id: 2,
-          badge: "WHY SHORT GAME",
-          title: React.createElement(
-            "div",
-            { className: "leading-tight text-slate-800" },
-            "드라이버, 세컨 잘 쳐놓고",
-            React.createElement("br"),
-            React.createElement("span", { className: "text-red-500" }, "그린 주변에서"),
-            React.createElement("br"),
-            "실수가 잦으신 분들...🫠"
-          ),
-          description:
-            "연습장에선 괜찮은데\n필드에서 타수가 안 줄어드는 이유,\n대부분 숏게임에서 실수합니다.\n\n이번 2월, 시즌 전에\n숏게임 감각을 먼저 만들어 보아요!",
-          iconType: "target"
-        },
-        {
-          id: 3,
-          badge: "LOCATION",
-          title: React.createElement(
-            "div",
-            { className: "leading-tight" },
-            "레슨 장소",
-            React.createElement("br"),
-            "상황에 맞게 진행"
-          ),
-          list: ["실내 : 판교 백야드", "야외 : 외부 장소/파3 가능 (개별 문의)", "장소·일정 협의 후 요청자 맞춤 진행", "※원하는 지역/레슨 따로 문의"],
-          iconType: "hole"
-        },
-        {
-          id: 4,
-          badge: "PROGRAM",
-          title: "서수연스승 숏/파3 실전레슨",
-          subtitle: "거리별 어프로치 · 벙커 · 퍼팅/거리감",
-          description:
-            "이론은 최소,\n진짜 필드 노하우와 감각을\n2시간 집중으로 배워보세요.\n\n소수정예 프라이빗 레슨으로\n퀄리티와 만족도를 높였습니다.",
-          iconType: "putter"
-        },
-        {
-          id: 5,
-          badge: "APP MEMBER BENEFIT",
-          title: React.createElement("div", { className: "leading-tight" }, "스승님 전용 할인가 안내"),
-          benefits: [
-            {
-              label: "APP MEMBER PRICE",
-              value: React.createElement(
-                "div",
-                null,
-                React.createElement("span", { className: "text-slate-400 line-through mr-2 text-base md:text-lg font-black" }, "정상가 25만원"),
-                React.createElement("span", { className: "text-red-600 text-2xl md:text-3xl font-black" }, "혜택가 18만5천원")
-              ),
-              sub: "2월 한정 / 선착순 7팀 (조기 마감 우려)"
-            },
-            {
-              label: "PAIR BENEFIT",
-              value: "2인 동반 신청 시 이용료 지원 혜택",
-              sub: "최대 2만원 / 조건별 적용"
-            },
-            {
-              label: "TOTAL BENEFIT",
-              value: "총 최대 30% 상당 혜택",
-              sub: "※ 혜택은 타임/인원 상황에 따라 변동·조기마감될 수 있습니다."
+      var fadeEls = Array.prototype.slice.call(document.querySelectorAll(".fade-in-section"));
+      if ("IntersectionObserver" in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              io.unobserve(entry.target);
             }
-          ],
-          iconType: "ball"
-        },
-        {
-          id: 6,
-          badge: "RECOMMENDED FOR",
-          title: "이런 분들께 추천해요",
-          list: [
-            "시즌 첫 라운딩, 만년 스코어 탈출하고 싶은 분",
-            "연습장에서는 잘치는데 필드에서 망가지는 분",
-            "3펏/어프로치 실수로 스코어 방어가 안되는 분",
-            "친구/지인/가족과 함께 (2인) 참여하고 싶은 분",
-            "숏게임 감각을 ‘극한’으로 끌어올리고 싶은 분"
-          ],
-          iconType: "target"
-        },
-        {
-          id: 7,
-          badge: "HOW TO APPLY",
-          title: "신청/진행 방식",
-          steps: ["하단 [신청하기] 버튼 클릭", "인원/성함·연락처/레슨유형 입력", "운영팀 확인 후 안내", "확정 후 진행"],
-          iconType: "putter"
-        },
-        {
-          id: 8,
-          badge: "LAST CALL",
-          title: React.createElement(
-            "div",
-            { className: "leading-tight" },
-            React.createElement("span", { className: "text-red-600" }, "2월 마지막 7팀"),
-            React.createElement("br"),
-            "지금 신청하시면",
-            React.createElement("br"),
-            React.createElement("span", { className: "text-blue-600" }, "이벤트 혜택 적용")
-          ),
-          description:
-            "✔ 레슨비 25% 할인\n" +
-            "✔ 2인 동반 시 입장료 지원 (최대 2만원)\n" +
-            "✔ 타임별 최소 2인 진행\n\n" +
-            "신청만 남겨주시면 운영팀이 순차 안내드립니다.",
-          iconType: "ball"
-        }
-      ];
-
-      function Card({ data }) {
-        const renderDecorIcon = () => {
-          switch (data.iconType) {
-            case "ball":
-              return React.createElement(GolfBall3D);
-            case "putter":
-              return React.createElement(Trophy3D);
-            case "hole":
-              return React.createElement(Location3D);
-            case "target":
-              return React.createElement(Coin3D);
-            default:
-              return null;
-          }
-        };
-
-        const getWatermark = () => {
-          switch (data.id) {
-            case 1:
-              return "MEMBER";
-            case 2:
-              return "SCORE";
-            case 3:
-              return "PLACE";
-            case 4:
-              return "LESSON";
-            case 5:
-              return "BENEFIT";
-            case 6:
-              return "FOR YOU";
-            case 7:
-              return "STEP";
-            case 8:
-              return "MATCH";
-            default:
-              return "GOLF";
-          }
-        };
-
-        return React.createElement(
-          "div",
-          { className: "relative w-[92vw] max-w-[420px] mx-auto flex-shrink-0 snap-center h-[68svh] md:h-[76svh] p-2" },
-          React.createElement(
-            "div",
-            { className: "glass-card w-full h-full rounded-[48px] shadow-2xl overflow-hidden flex flex-col p-7 md:p-9 relative text-[15px] md:text-[16px]" },
-            React.createElement(
-              "div",
-              {
-                className:
-                  "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[100px] font-black text-blue-500/[0.03] select-none pointer-events-none -rotate-12 whitespace-nowrap z-0 tracking-tighter"
-              },
-              getWatermark()
-            ),
-            React.createElement("div", { className: "absolute -top-2 -right-2 opacity-30 scale-[1.1] rotate-12 blur-[0.5px]" }, renderDecorIcon()),
-            React.createElement(
-              "div",
-              { className: "mb-3 md:mb-4 relative z-10" },
-              data.badge
-                ? React.createElement(
-                    "span",
-                    {
-                      className:
-                        "inline-block px-3 py-0.5 rounded-xl bg-blue-600 text-white text-[8px] font-black mb-2.5 tracking-widest uppercase shadow-md shadow-blue-500/20"
-                    },
-                    data.badge
-                  )
-                : null,
-              React.createElement(
-                "h2",
-                { className: "text-[25px] md:text-[30px] font-black text-slate-900 tracking-tight leading-[1.12]" },
-                data.title
-              )
-            ),
-            React.createElement(
-              "div",
-              { className: "flex-1 flex flex-col justify-start space-y-3 md:space-y-4 relative z-10 overflow-hidden" },
-              data.subtitle
-                ? React.createElement(
-                    "p",
-                    {
-                      className:
-                        "text-[16px] md:text-[18px] font-black text-slate-800 border-l-[6px] border-blue-500 pl-3 py-0.5 whitespace-pre-line leading-[1.2]"
-                    },
-                    data.subtitle
-                  )
-                : null,
-              data.description
-                ? React.createElement(
-                    "p",
-                    { className: "text-[14px] md:text-[16px] text-slate-600 font-bold leading-[1.35] whitespace-pre-line tracking-tight" },
-                    data.description
-                  )
-                : null,
-              data.list
-                ? React.createElement(
-                    "ul",
-                    { className: "space-y-2 md:space-y-2.5" },
-                    data.list.map((item, idx) =>
-                      React.createElement(
-                        "li",
-                        {
-                          key: idx,
-                          className: "flex items-start gap-2.5 text-[14px] md:text-[16px] font-black text-slate-800 leading-[1.2]"
-                        },
-                        React.createElement(
-                          "div",
-                          { className: "mt-[2px] flex-shrink-0 w-6 h-6 rounded-lg bg-blue-100 flex items-center justify-center shadow-sm" },
-                          React.createElement(CheckIcon)
-                        ),
-                        React.createElement("span", { className: "leading-[1.2]" }, item)
-                      )
-                    )
-                  )
-                : null,
-              data.benefits
-                ? React.createElement(
-                    "div",
-                    { className: "space-y-3 md:space-y-4" },
-                    data.benefits.map((benefit, idx) =>
-                      React.createElement(
-                        "div",
-                        {
-                          key: idx,
-                          className:
-                            "bg-white/75 p-4 md:p-6 rounded-[32px] border border-white/90 shadow-lg shadow-blue-900/5 relative overflow-hidden"
-                        },
-                        React.createElement(
-                          "div",
-                          { className: "flex justify-between items-start mb-0.5 relative z-10" },
-                          React.createElement("p", { className: "text-[9px] font-black text-blue-500 uppercase tracking-tighter" }, benefit.label)
-                        ),
-                        React.createElement(
-                          "div",
-                          { className: "text-xl md:text-2xl font-black text-slate-900 tracking-tight relative z-10" },
-                          benefit.value
-                        ),
-                        benefit.sub
-                          ? React.createElement("p", { className: "text-xs text-slate-500 font-bold mt-1 leading-tight relative z-10" }, benefit.sub)
-                          : null
-                      )
-                    )
-                  )
-                : null,
-              data.steps
-                ? React.createElement(
-                    "div",
-                    { className: "space-y-2" },
-                    data.steps.map((step, idx) =>
-                      React.createElement(
-                        "div",
-                        {
-                          key: idx,
-                          className: "flex items-center gap-3 bg-white/45 p-2 rounded-[20px] border border-white/55 shadow-sm"
-                        },
-                        React.createElement(
-                          "div",
-                          {
-                            className:
-                              "flex-shrink-0 w-8 h-8 rounded-[12px] bg-slate-900 text-white flex items-center justify-center text-sm font-black shadow-lg"
-                          },
-                          idx + 1
-                        ),
-                        React.createElement("p", { className: "text-[14px] md:text-[16px] font-black text-slate-800 leading-[1.2]" }, step)
-                      )
-                    )
-                  )
-                : null
-            ),
-            React.createElement(
-              "div",
-              { className: "flex justify-between items-center mt-auto pt-3 border-t border-slate-200/50" },
-              React.createElement(
-                "div",
-                { className: "flex items-center gap-3" },
-                React.createElement(
-                  "div",
-                  { className: "p-2.5 bg-blue-600 rounded-[18px] text-white shadow-lg shadow-blue-500/10 scale-90" },
-                  renderDecorIcon()
-                ),
-                React.createElement(
-                  "div",
-                  null,
-                  React.createElement("p", { className: "text-[8px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1" }, "Ssnim Member"),
-                  React.createElement("p", { className: "text-sm font-black text-slate-900" }, "SEO SU-YEON")
-                )
-              ),
-              React.createElement(
-                "div",
-                { className: "text-right flex flex-col items-end" },
-                React.createElement("span", { className: "text-blue-200 font-black text-3xl leading-none" }, `0${data.id}`),
-                React.createElement("span", { className: "text-[9px] font-black text-blue-300 uppercase mt-0.5" }, "Page")
-              )
-            )
-          )
-        );
+          });
+        }, { threshold: 0.1 });
+        fadeEls.forEach(function (el) { io.observe(el); });
+      } else {
+        fadeEls.forEach(function (el) { el.classList.add("is-visible"); });
       }
 
-      function App() {
-        const [activePage, setActivePage] = useState(0);
-        const scrollRef = useRef(null);
-
-        const handleScroll = () => {
-          const el = scrollRef.current;
-          if (!el) return;
-          const { scrollLeft, clientWidth } = el;
-          const index = Math.round(scrollLeft / clientWidth);
-          setActivePage(index);
-        };
-
-        const scrollToIndex = (index) => {
-          const el = scrollRef.current;
-          if (!el) return;
-          const targetIndex = Math.max(0, Math.min(index, CARD_DATA.length - 1));
-          el.scrollTo({ left: targetIndex * el.clientWidth, behavior: "smooth" });
-        };
-
-        const openForm = () => {
-          window.open("https://naver.me/xfbUquJM", "_blank");
-        };
-
-        useEffect(() => {
-          const t = setTimeout(() => handleScroll(), 50);
-          return () => clearTimeout(t);
-        }, []);
-
-        return React.createElement(
-          "div",
-          { className: "fixed inset-0 w-full min-h-[100svh] bg-gradient-to-br from-[#e0f2fe] via-white to-[#f1f5f9] flex flex-col overflow-hidden" },
-          React.createElement("div", { className: "absolute top-[-10%] right-[-10%] w-[80%] h-[80%] bg-blue-400/20 blur-[160px] rounded-full animate-pulse" }),
-          React.createElement("div", { className: "absolute bottom-[-10%] left-[-10%] w-[80%] h-[80%] bg-indigo-400/10 blur-[160px] rounded-full" }),
-          React.createElement(
-            "header",
-            { className: "px-6 md:px-10 pt-8 md:pt-12 pb-1 relative z-10 flex justify-between items-end" },
-            React.createElement(
-              "div",
-              null,
-              React.createElement("h1", { className: "text-xl md:text-2xl font-black text-slate-900 tracking-tighter leading-none mb-1" }, COPY.headerTitle),
-              React.createElement("p", { className: "text-[10px] text-blue-600 font-black uppercase tracking-[0.2em]" }, COPY.headerSub)
-            ),
-            React.createElement(
-              "div",
-              { className: "flex gap-1.5 mb-1" },
-              CARD_DATA.map((_, i) =>
-                React.createElement("div", {
-                  key: i,
-                  className: "h-1.5 rounded-full transition-all duration-500 " + (i === activePage ? "w-8 bg-blue-600" : "w-1.5 bg-slate-200")
-                })
-              )
-            )
-          ),
-          React.createElement(
-            "div",
-            { className: "absolute inset-y-0 left-1 w-10 flex items-center justify-center z-30 pointer-events-none" },
-            activePage > 0
-              ? React.createElement(
-                  "button",
-                  {
-                    onClick: () => scrollToIndex(activePage - 1),
-                    className:
-                      "w-9 h-9 rounded-full glass-card flex items-center justify-center text-slate-800 shadow-xl active:scale-90 transition-all pointer-events-auto border-white/50"
-                  },
-                  React.createElement(ChevronLeft)
-                )
-              : null
-          ),
-          React.createElement(
-            "div",
-            { className: "absolute inset-y-0 right-1 w-10 flex items-center justify-center z-30 pointer-events-none" },
-            activePage < CARD_DATA.length - 1
-              ? React.createElement(
-                  "button",
-                  {
-                    onClick: () => scrollToIndex(activePage + 1),
-                    className:
-                      "w-9 h-9 rounded-full glass-card flex items-center justify-center text-slate-800 shadow-xl active:scale-90 transition-all pointer-events-auto border-white/50"
-                  },
-                  React.createElement(ChevronRight)
-                )
-              : null
-          ),
-          React.createElement(
-            "main",
-            { ref: scrollRef, onScroll: handleScroll, className: "flex-1 min-h-0 overflow-x-auto snap-x snap-mandatory no-scrollbar flex items-start relative z-10" },
-            React.createElement(
-              "div",
-              { className: "flex h-fit" },
-              CARD_DATA.map((card) =>
-                React.createElement(
-                  "div",
-                  { key: card.id, className: "w-screen flex justify-center py-2" },
-                  React.createElement(Card, { data: card })
-                )
-              )
-            )
-          ),
-          React.createElement(
-            "footer",
-            { className: "px-6 md:px-10 pb-8 md:pb-12 relative z-20 flex flex-col items-center gap-10" },
-            React.createElement(
-              "div",
-              {
-                className:
-                  "w-full max-w-[420px] bg-white/85 backdrop-blur-2xl border-2 border-blue-500/10 py-3 px-5 rounded-[28px] flex items-center justify-between shadow-lg shadow-blue-500/5 relative"
-              },
-              React.createElement(
-                "div",
-                { className: "flex items-center gap-3" },
-                React.createElement("div", { className: "w-2 h-2 bg-red-500 rounded-full animate-ping" }),
-                React.createElement("p", { className: "text-[9px] font-black text-slate-900 tracking-tight" }, COPY.footerBar)
-              ),
-              React.createElement(
-                "span",
-                { className: "text-[7px] font-black text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full border border-blue-100 uppercase" },
-                "마감임박"
-              )
-            ),
-            React.createElement(
-              "div",
-              { className: "relative w-full max-w-[420px]" },
-              React.createElement(
-                "div",
-                { className: "absolute -top-10 inset-x-0 flex justify-center px-3 z-20 pointer-events-none" },
-                React.createElement(
-                  "div",
-                  {
-                    className:
-                      "bg-red-600 text-white text-[10px] font-black px-3 py-2 rounded-xl shadow-lg shadow-red-900/10 text-center leading-tight max-w-[420px] w-full animate-bounce break-keep whitespace-normal relative after:content-[''] after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:border-[8px] after:border-transparent after:border-t-red-600"
-                  },
-                  COPY.urgencyTop
-                )
-              ),
-              React.createElement(
-                "button",
-                {
-                  onClick: openForm,
-                  className:
-                    "w-full bg-[#03C75A] hover:bg-[#02b351] text-white h-20 rounded-[26px] flex items-center justify-center gap-3 shadow-[0_15px_40px_rgba(3,199,90,0.25)] active:scale-[0.98] transition-all border-b-4 border-[#02b351]"
-                },
-                React.createElement("div", { className: "p-2 bg-black/5 rounded-xl" }, React.createElement(NaverIcon)),
-                React.createElement(
-                  "div",
-                  { className: "flex flex-col items-start" },
-                  React.createElement("span", { className: "text-lg font-black leading-none" }, COPY.ctaTitle),
-                  React.createElement("span", { className: "text-[9px] font-black opacity-50 tracking-widest uppercase mt-0.5" }, COPY.ctaSub)
-                )
-              )
-            )
-          ),
-          React.createElement("div", { className: "fixed top-0 left-0 w-full h-1.5 bg-blue-600 z-50" })
-        );
+      var shortgameImg = document.getElementById("shortgameImg");
+      var shortgameVisual = document.getElementById("shortgameVisual");
+      if (shortgameImg && shortgameVisual) {
+        shortgameImg.addEventListener("error", function () {
+          shortgameVisual.innerHTML =
+            '<div class="text-center p-8">' +
+              '<div class="inline-block px-3 py-1 bg-black text-white text-[9px] font-bold tracking-[0.2em] rounded-full mb-4 uppercase">Exclusive Masterclass</div>' +
+              '<h3 class="text-4xl md:text-6xl font-black text-gray-900 mb-4 tracking-tight leading-none">스승님<br/><span class="text-emerald-500">X</span><br/>서수연 프로</h3>' +
+              '<p class="text-gray-400 font-light text-base">가장 완벽한 숏게임을 만나다</p>' +
+            '</div>';
+        });
       }
 
-      const rootEl = document.getElementById("root");
-      if (!rootEl) throw new Error("Could not find root element to mount to");
-      createRoot(rootEl).render(React.createElement(React.StrictMode, null, React.createElement(App)));
-    </script>
-  </body>
+      function postFormJson(formEl, subject) {
+        var fd = new FormData(formEl);
+        var obj = {};
+        fd.forEach(function (v, k) { obj[k] = v; });
+        obj._subject = subject;
+
+        return fetch(FORM_ENDPOINT, {
+          method: "POST",
+          headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(obj)
+        });
+      }
+
+      var shortGameForm = document.getElementById("shortGameForm");
+      var shortGameSubmit = document.getElementById("shortGameSubmit");
+      var shortGameSuccess = document.getElementById("shortGameSuccess");
+      var shortGameError = document.getElementById("shortGameError");
+
+      if (shortGameForm) {
+        shortGameForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (shortGameError) shortGameError.classList.add("hidden");
+          if (shortGameSubmit) {
+            shortGameSubmit.disabled = true;
+            shortGameSubmit.textContent = "전송 중...";
+          }
+
+          postFormJson(shortGameForm, "[스승님] 숏게임 실전 레슨 신청 도착")
+            .then(function (res) {
+              if (res.ok) {
+                if (shortGameForm) shortGameForm.classList.add("hidden");
+                if (shortGameSuccess) shortGameSuccess.classList.remove("hidden");
+              } else {
+                if (shortGameError) shortGameError.classList.remove("hidden");
+              }
+            })
+            .catch(function () {
+              if (shortGameError) shortGameError.classList.remove("hidden");
+            })
+            .finally(function () {
+              if (shortGameSubmit && shortGameForm && !shortGameForm.classList.contains("hidden")) {
+                shortGameSubmit.disabled = false;
+                shortGameSubmit.textContent = "숏게임 레슨 신청하기";
+              }
+            });
+        });
+      }
+
+      var customForm = document.getElementById("customForm");
+      var customSubmit = document.getElementById("customSubmit");
+      var customSuccess = document.getElementById("customSuccess");
+      var customCard = document.getElementById("customCard");
+      var customError = document.getElementById("customError");
+
+      if (customForm) {
+        customForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (customError) customError.classList.add("hidden");
+          if (customSubmit) {
+            customSubmit.disabled = true;
+            customSubmit.textContent = "전송 중...";
+          }
+
+          postFormJson(customForm, "[스승님] 맞춤 레슨 요청서 도착")
+            .then(function (res) {
+              if (res.ok) {
+                if (customCard) customCard.classList.add("hidden");
+                if (customSuccess) customSuccess.classList.remove("hidden");
+              } else {
+                if (customError) customError.classList.remove("hidden");
+              }
+            })
+            .catch(function () {
+              if (customError) customError.classList.remove("hidden");
+            })
+            .finally(function () {
+              if (customSubmit && customCard && !customCard.classList.contains("hidden")) {
+                customSubmit.disabled = false;
+                customSubmit.textContent = "맞춤 스승님 찾기";
+              }
+            });
+        });
+      }
+
+      var faqBtns = Array.prototype.slice.call(document.querySelectorAll(".faq-btn"));
+      faqBtns.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var parent = btn.closest("div");
+          if (!parent) return;
+
+          faqBtns.forEach(function (b) {
+            if (b === btn) return;
+            var p = b.closest("div");
+            if (!p) return;
+            var panel = p.querySelector(".faq-panel");
+            var icon = p.querySelector(".faq-icon");
+            if (panel) panel.classList.add("hidden");
+            if (icon) icon.classList.remove("rotate-180");
+            b.setAttribute("aria-expanded", "false");
+          });
+
+          var panel = parent.querySelector(".faq-panel");
+          var icon = parent.querySelector(".faq-icon");
+          var expanded = btn.getAttribute("aria-expanded") === "true";
+
+          if (panel) panel.classList.toggle("hidden", expanded);
+          if (icon) icon.classList.toggle("rotate-180", !expanded);
+          btn.setAttribute("aria-expanded", expanded ? "false" : "true");
+        });
+      });
+    })();
+  </script>
+</body>
 </html>
