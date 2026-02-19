@@ -1,525 +1,887 @@
 <!doctype html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>스승님 | 프리미엄 골프 레슨</title>
-
-  <meta property="og:title" content="스승님 | 프리미엄 골프 레슨" />
-  <meta property="og:description" content="숏게임 특가 레슨 + 내 조건 그대로 맞춤 레슨 요청(결제 없음)" />
-  <meta property="og:type" content="website" />
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-
-  <style>
-    body{
-      font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-      scroll-behavior:smooth;
-      -webkit-font-smoothing:antialiased;
-      word-break:keep-all;
-      overflow-x:hidden;
-    }
-    .glass-nav{
-      backdrop-filter:blur(12px);
-      -webkit-backdrop-filter:blur(12px);
-      background-color:rgba(255,255,255,.7);
-    }
-    .fade-in-section{
-      opacity:0;
-      transform:translateY(20px);
-      transition:opacity .8s ease-out,transform .8s ease-out;
-    }
-    .fade-in-section.is-visible{
-      opacity:1;
-      transform:translateY(0);
-    }
-    @media (max-width:640px){
-      .mobile-tight{
-        letter-spacing:-.05em;
-        line-height:1.2;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>스승님 | 프리미엄 골프 레슨</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <style>
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+        word-break: keep-all;
+        overflow-x: hidden;
       }
-    }
-  </style>
-</head>
+      .fade-in-section {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+      .fade-in-section.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .glass-nav {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        background-color: rgba(255, 255, 255, 0.7);
+      }
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      @media (max-width: 640px) {
+        .mobile-tight {
+          letter-spacing: -0.05em;
+          line-height: 1.25;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-900">
+    <div id="root"></div>
 
-<body class="bg-white text-gray-900">
-  <nav class="fixed top-0 left-0 w-full z-50 glass-nav border-b border-gray-100">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <button class="text-xl font-bold tracking-tight text-gray-900 cursor-pointer" id="goTop" type="button">스승님</button>
-      <div class="flex space-x-6 md:space-x-8 text-sm font-medium text-gray-500">
-        <a href="#short-game" class="hover:text-black transition-colors">숏게임 레슨</a>
-        <a href="#custom-lesson" class="hover:text-black transition-colors">맞춤 레슨</a>
-        <a href="#reviews" class="hover:text-black transition-colors">수강 후기</a>
-        <a href="http://pf.kakao.com/_kxawRn/chat" target="_blank" rel="noreferrer" class="hover:text-black transition-colors text-emerald-600 font-bold">문의하기</a>
-      </div>
-    </div>
-  </nav>
+    <script type="module">
+      import React, { useEffect, useMemo, useRef, useState } from "https://esm.sh/react@19.2.0";
+      import ReactDOM from "https://esm.sh/react-dom@19.2.0/client";
+      import htm from "https://esm.sh/htm@3.1.1";
 
-  <main class="relative min-h-screen bg-white pt-[72px] pb-28 md:pb-0">
-    <section class="relative h-[calc(100vh-72px)] flex flex-col justify-center items-center text-center px-6 overflow-hidden bg-[#FBFBFB]">
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] pointer-events-none opacity-20">
-        <div class="absolute w-[600px] h-[600px] bg-emerald-50 rounded-full blur-[120px] -top-20 -left-20"></div>
-        <div class="absolute w-[400px] h-[400px] bg-slate-100 rounded-full blur-[100px] bottom-0 right-0"></div>
-      </div>
+      const html = htm.bind(React.createElement);
 
-      <div class="fade-in-section max-w-4xl relative z-10 w-full">
-        <h1 class="text-[32px] sm:text-5xl md:text-7xl font-bold tracking-tight text-gray-900 leading-[1.2] md:leading-[1.15] mb-6 md:mb-8 mobile-tight px-2">
-          레슨은 내가 고르고,<br class="sm:hidden" />
-          아니면 시작하지 않습니다
-        </h1>
-        <p class="text-base md:text-2xl text-gray-500 mb-10 md:mb-12 font-light max-w-2xl mx-auto leading-relaxed px-4 md:px-0">
-          내 마음대로 고르는 숏게임 특가 레슨부터<br class="hidden md:block" />
-          내 조건에 딱 맞는 스승님 추천까지
-        </p>
-        <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center w-full px-4 md:px-0">
-          <a href="#short-game" class="w-full sm:w-auto px-8 py-4 bg-black text-white rounded-full text-base md:text-lg font-medium hover:scale-105 transition-transform">숏게임 레슨 신청</a>
-          <a href="#custom-lesson" class="w-full sm:w-auto px-8 py-4 bg-white text-black border border-gray-200 rounded-full text-base md:text-lg font-medium hover:bg-gray-50 transition-colors">맞춤 레슨 요청 (결제없음)</a>
-        </div>
-      </div>
+      const scrollToId = (id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        const offset = 80;
+        const bodyRect = document.body.getBoundingClientRect().top;
+        const elementRect = el.getBoundingClientRect().top;
+        const elementPosition = elementRect - bodyRect;
+        const offsetPosition = elementPosition - offset;
+        window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+      };
 
-      <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-        <svg class="w-5 h-5 md:w-6 md:h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
-      </div>
-    </section>
+      const FadeIn = ({ children, className = "" }) => {
+        const [isVisible, setVisible] = useState(false);
+        const domRef = useRef(null);
 
-    <section id="short-game" class="py-20 px-6 md:py-32 bg-white scroll-mt-24">
-      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-        <div class="fade-in-section">
-          <div class="relative rounded-[32px] md:rounded-[40px] overflow-hidden bg-gray-50 aspect-[4/5] md:aspect-video lg:aspect-square group shadow-2xl shadow-gray-200/50">
-            <div class="absolute inset-0 bg-[#F2F4F7]">
-              <div class="absolute top-[-10%] right-[-10%] w-[80%] h-[80%] bg-emerald-100 rounded-full blur-[80px] opacity-60 animate-pulse"></div>
-              <div class="absolute bottom-[-5%] left-[-5%] w-[60%] h-[60%] bg-blue-50 rounded-full blur-[60px] opacity-40"></div>
-            </div>
+        useEffect(() => {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  setVisible(true);
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.1 }
+          );
 
-            <svg class="absolute bottom-0 left-0 w-full opacity-20" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M0 150C100 120 300 180 400 130V200H0V150Z" fill="url(#paint0_linear)" />
-              <defs>
-                <linearGradient id="paint0_linear" x1="200" y1="130" x2="200" y2="200" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#10B981" />
-                  <stop offset="1" stop-color="#059669" stop-opacity="0" />
-                </linearGradient>
-              </defs>
-            </svg>
+          if (domRef.current) observer.observe(domRef.current);
 
-            <div class="absolute inset-0 flex items-center justify-center p-6 z-10 transition-transform duration-700 group-hover:scale-105" id="shortgameVisual">
-             <div class="w-full h-full flex flex-col items-center justify-center text-center px-6">
+          return () => {
+            if (domRef.current) observer.unobserve(domRef.current);
+          };
+        }, []);
 
-  <span class="text-[10px] tracking-[0.25em] font-bold mb-4 text-gray-400">
-    EXCLUSIVE MASTERCLASS
-  </span>
-
-  <h3 class="text-4xl md:text-6xl font-black leading-none mb-4">
-    스승님<br>
-    <span class="text-emerald-500">X</span><br>
-    서수연 프로
-  </h3>
-
-  <p class="text-gray-400 text-sm">
-    시즌을 바꾸는 숏게임 실전 레슨
-  </p>
-
-</div>
-            </div>
-
-            <div class="absolute bottom-6 left-6 right-6 z-20 glass-nav bg-white/40 border border-white/40 p-4 rounded-xl flex justify-between items-center">
-              <div>
-                <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Lesson Spot</p>
-                <p class="text-xs font-semibold text-gray-900">판교 백야드 & 필드</p>
-              </div>
-              <div class="text-right">
-                <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Available Now</p>
-                <p class="text-xs font-semibold text-emerald-600">선착순 마감주의</p>
-              </div>
-            </div>
+        return html`
+          <div ref=${domRef} className=${`fade-in-section ${isVisible ? "is-visible" : ""} ${className}`}>
+            ${children}
           </div>
-        </div>
+        `;
+      };
 
-        <div class="fade-in-section">
-          <div class="space-y-6 md:space-y-8">
-            <div>
-              <h2 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight">숏게임 실전 레슨</h2>
-              <p class="text-gray-500 text-base md:text-lg leading-relaxed font-light">
-                장소: 판교 백야드(실내) & 야외 숏게임장<br />
-                혜택: 2인 동반 시 이용료 최대 2만원 지원
+      const Header = () => {
+        const onNav = (e, id) => {
+          e.preventDefault();
+          scrollToId(id);
+        };
+
+        return html`
+          <nav className="fixed top-0 left-0 w-full z-50 glass-nav border-b border-gray-100">
+            <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+              <div
+                className="text-xl font-bold tracking-tight text-gray-900 cursor-pointer"
+                onClick=${() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              >
+                스승님
+              </div>
+              <div className="flex space-x-6 md:space-x-8 text-sm font-medium text-gray-500">
+                <a href="#short-game" onClick=${(e) => onNav(e, "short-game")} className="hover:text-black transition-colors">
+                  숏게임 레슨
+                </a>
+                <a href="#custom-lesson" onClick=${(e) => onNav(e, "custom-lesson")} className="hover:text-black transition-colors">
+                  맞춤 레슨
+                </a>
+                <a href="#reviews" onClick=${(e) => onNav(e, "reviews")} className="hover:text-black transition-colors">
+                  수강 후기
+                </a>
+                <a
+                  href="http://pf.kakao.com/_kxawRn/chat"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-black transition-colors text-emerald-600 font-bold"
+                >
+                  문의하기
+                </a>
+              </div>
+            </div>
+          </nav>
+        `;
+      };
+
+      const Hero = () => {
+        const onNav = (e, id) => {
+          e.preventDefault();
+          scrollToId(id);
+        };
+
+        return html`
+          <section
+            className="relative h-[90vh] md:h-screen flex flex-col justify-center items-center text-center px-6 overflow-hidden bg-[#FBFBFB]"
+          >
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] pointer-events-none opacity-20">
+              <div className="absolute w-[600px] h-[600px] bg-emerald-100 rounded-full blur-[120px] -top-20 -left-20"></div>
+              <div className="absolute w-[400px] h-[400px] bg-blue-50 rounded-full blur-[100px] bottom-0 right-0"></div>
+            </div>
+
+            <${FadeIn} className="max-w-4xl relative z-10 w-full px-2">
+              <div
+                className="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-50 text-emerald-700 rounded-full text-xs md:text-sm font-bold mb-6 md:mb-8 border border-emerald-100"
+              >
+                <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-ping"></span>
+                2월 한정: 숏게임 클래스 마감 임박
+              </div>
+
+              <h1
+                className="text-[32px] sm:text-5xl md:text-7xl font-black tracking-tighter text-gray-900 leading-[1.1] md:leading-[1.1] mb-6 md:mb-10 break-keep"
+              >
+                연습장에선 80타,<br />
+                필드만 나가면 <span className="text-emerald-500">100타?</span>
+              </h1>
+
+              <p className="text-lg md:text-2xl text-gray-500 mb-10 md:mb-14 font-medium max-w-2xl mx-auto leading-relaxed break-keep">
+                문제는 스윙이 아니라 숏게임입니다.<br className="hidden md:block" />
+                시즌 시작 전, 필드에서 즉시 통하는 실전력을 장착하세요.
               </p>
-            </div>
 
-            <div class="flex items-baseline gap-2 pb-4 border-b border-gray-100">
-              <span class="text-gray-300 line-through text-sm">250,000원</span>
-              <span class="font-bold text-3xl text-emerald-600">185,000<span class="text-lg font-normal">원</span></span>
-            </div>
-
-            <div id="shortGameSuccess" class="hidden bg-emerald-50 p-10 md:p-12 rounded-2xl text-center border border-emerald-100">
-              <div class="text-3xl mb-3">✅</div>
-              <h4 class="text-lg font-bold text-emerald-900 mb-1">신청이 완료되었습니다</h4>
-              <p class="text-emerald-700 text-xs font-light">확인 후 1시간 내로 담당자가 연락드리겠습니다</p>
-            </div>
-
-            <form id="shortGameForm" class="bg-gray-50 p-6 md:p-8 rounded-2xl space-y-4 border border-gray-100 shadow-inner">
-              <h4 class="text-base md:text-lg font-semibold mb-1">지금 바로 신청하세요</h4>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <input required name="이름" type="text" placeholder="이름" class="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl outline-none focus:border-black transition-colors text-sm" />
-                <input required name="연락처" type="tel" placeholder="연락처" class="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl outline-none focus:border-black transition-colors text-sm" />
-              </div>
-              <input required name="희망일정" type="text" placeholder="희망 일정 (예: 평일 오전)" class="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl outline-none focus:border-black transition-colors text-sm" />
-              <select name="인원" class="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl outline-none focus:border-black transition-colors appearance-none text-sm">
-                <option value="1">1인 신청</option>
-                <option value="2">2인 동반 (혜택 적용)</option>
-              </select>
-              <button id="shortGameSubmit" type="submit" class="w-full py-4 bg-black text-white rounded-xl font-bold hover:bg-gray-800 transition-all mt-2 disabled:bg-gray-400 shadow-lg shadow-gray-200">
-                숏게임 레슨 신청하기
-              </button>
-              <p id="shortGameError" class="hidden text-xs text-red-500 font-medium">전송에 실패했습니다. 잠시 후 다시 시도해주세요.</p>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="custom-lesson" class="py-20 px-6 md:py-32 bg-[#F9FAFB] scroll-mt-24">
-      <div class="max-w-4xl mx-auto text-center mb-12 md:mb-16">
-        <div class="fade-in-section">
-          <span class="text-emerald-600 font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 md:mb-4 block">Personalized Matching</span>
-          <h2 class="text-3xl md:text-5xl font-bold mb-4 md:mb-6 tracking-tight">내 조건 그대로, 맞춤 레슨</h2>
-          <p class="text-gray-400 text-base md:text-lg font-light italic px-4">"결제는 스승님이 마음에 들었을 때 결정하세요"</p>
-        </div>
-      </div>
-
-      <div class="fade-in-section max-w-3xl mx-auto">
-        <div id="customSuccess" class="hidden bg-white p-10 md:p-16 rounded-[32px] text-center border border-emerald-100 shadow-2xl shadow-gray-100">
-          <div class="text-4xl md:text-5xl mb-6">🎯</div>
-          <h4 class="text-xl md:text-2xl font-bold text-gray-900 mb-3">요청이 접수되었습니다</h4>
-          <p class="text-gray-500 mb-8 md:mb-10 font-light text-sm md:text-base leading-relaxed">
-            입력하신 정보를 바탕으로 가장 적합한 프로님<br class="md:hidden" />
-            최대 3분을 1시간 내로 안내해 드리겠습니다
-          </p>
-          <a href="http://pf.kakao.com/_kxawRn/chat" target="_blank" rel="noreferrer" class="inline-block px-8 md:px-10 py-4 md:py-5 bg-[#FEE500] text-[#3c1e1e] rounded-2xl font-bold text-sm md:text-base hover:scale-105 transition-transform">
-            카카오톡 채널로 바로 문의하기
-          </a>
-        </div>
-
-        <div id="customCard" class="bg-white p-6 md:p-12 rounded-[32px] shadow-sm border border-gray-100">
-          <form id="customForm" class="space-y-6 md:space-y-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-              <div class="space-y-2">
-                <label class="text-[10px] font-bold text-gray-400 ml-1 uppercase tracking-tighter">희망 지역</label>
-                <input required name="지역" type="text" placeholder="예: 서울 강남구" class="w-full px-4 py-4 bg-gray-50 border border-transparent rounded-2xl outline-none focus:bg-white focus:border-emerald-200 transition-all text-sm" />
+              <div className="flex flex-col sm:flex-row gap-4 justify-center w-full max-w-md mx-auto sm:max-w-none">
+                <a
+                  href="#short-game"
+                  onClick=${(e) => onNav(e, "short-game")}
+                  className="w-full sm:w-auto px-10 py-5 bg-black text-white rounded-2xl text-base md:text-lg font-bold hover:scale-[1.02] transition-transform shadow-2xl shadow-black/20"
+                >
+                  숏게임/파3 레슨 신청
+                </a>
+                <a
+                  href="#custom-lesson"
+                  onClick=${(e) => onNav(e, "custom-lesson")}
+                  className="w-full sm:w-auto px-10 py-5 bg-white text-black border border-gray-200 rounded-2xl text-base md:text-lg font-bold hover:bg-gray-50 transition-colors shadow-sm"
+                >
+                  내 조건 맞춤 레슨 찾기
+                </a>
               </div>
 
-              <div class="space-y-2">
-                <label class="text-[10px] font-bold text-gray-400 ml-1 uppercase tracking-tighter">희망 예산 (1회 기준)</label>
-                <select name="예산" class="w-full px-4 py-4 bg-gray-50 border border-transparent rounded-2xl outline-none focus:bg-white focus:border-emerald-200 transition-all appearance-none text-sm">
-                  <option value="10">10만원 이하</option>
-                  <option value="13" selected>13만원 (추천)</option>
-                  <option value="15">15만원 이상</option>
-                </select>
+              <p className="mt-8 text-xs md:text-sm text-gray-400 font-medium">
+                이미 1,200+명의 골퍼가 '스승님'에서 진짜 실력을 찾았습니다
+              </p>
+            </${FadeIn}>
+          </section>
+        `;
+      };
+
+      const Features = () => {
+        const targets = useMemo(
+          () => [
+            { title: "필드 냉탕온탕 골퍼", desc: "연습장에선 똑바른데, 그린 주변만 가면 뒤땅/탑볼 치는 분", icon: "⛳" },
+            { title: "만년 백돌이 탈출", desc: "드라이버는 멀리 가는데 숏게임에서 타수 다 까먹는 80~110타 골퍼", icon: "🎯" },
+            { title: "패키지 레슨 피해자", desc: "수백만 원 패키지 끊어놓고 프로랑 안 맞아서 돈만 버린 분", icon: "💸" },
+            { title: "바쁜 비즈니스 골퍼", desc: "시간은 없고, 당장 이번 주 라운딩에서 망신당하기 싫은 분", icon: "💼" },
+            { title: "시즌 대비 열혈 골퍼", desc: "본격적인 시즌 시작 전, 확실한 무기 하나 만들고 싶은 분", icon: "🔥" },
+            { title: "독학의 한계", desc: "유튜브만 보고 따라하다가 스윙 다 망가져서 고민인 분", icon: "📱" }
+          ],
+          []
+        );
+
+        return html`
+          <section className="py-24 px-6 md:py-32 bg-white">
+            <div className="max-w-7xl mx-auto">
+              <${FadeIn} className="text-center mb-16 md:mb-20">
+                <h2 className="text-3xl md:text-5xl font-black tracking-tighter mb-6">혹시 당신의 이야기인가요?</h2>
+                <p className="text-gray-500 text-lg md:text-xl font-medium">스승님은 이런 고민을 가진 골퍼를 위해 존재합니다.</p>
+              </${FadeIn}>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                ${targets.map(
+                  (t, i) => html`
+                    <${FadeIn} key=${i}>
+                      <div
+                        className="h-full bg-gray-50 p-8 md:p-10 rounded-[40px] border border-transparent hover:border-emerald-100 hover:bg-white hover:shadow-2xl hover:shadow-emerald-50 transition-all group"
+                      >
+                        <div className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-500">${t.icon}</div>
+                        <h3 className="text-xl md:text-2xl font-bold mb-4 tracking-tight text-gray-900">${t.title}</h3>
+                        <p className="text-gray-500 text-base leading-relaxed font-medium break-keep">${t.desc}</p>
+                      </div>
+                    </${FadeIn}>
+                  `
+                )}
               </div>
-            </div>
 
-            <div class="space-y-2">
-              <label class="text-[10px] font-bold text-gray-400 ml-1 uppercase tracking-tighter">레슨 고민 사항</label>
-              <textarea required name="고민사항" placeholder="예: 비거리 교정, 슬라이스 방지 등" class="w-full px-4 py-4 bg-gray-50 border border-transparent rounded-2xl outline-none focus:bg-white focus:border-emerald-200 transition-all h-28 md:h-32 resize-none text-sm"></textarea>
+              <${FadeIn} className="mt-16 text-center">
+                <a href="#custom-lesson" onClick=${(e) => (e.preventDefault(), scrollToId("custom-lesson"))} className="inline-flex items-center gap-2 text-emerald-600 font-bold text-lg hover:underline">
+                  내 고민 해결해줄 프로님 찾기
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              </${FadeIn}>
             </div>
+          </section>
+        `;
+      };
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-              <div class="space-y-2">
-                <label class="text-[10px] font-bold text-gray-400 ml-1 uppercase tracking-tighter">희망 횟수</label>
-                <div class="flex gap-2 md:gap-4">
-                  <label class="flex-1 flex items-center justify-center border border-gray-100 py-3 rounded-xl cursor-pointer hover:bg-gray-50 text-[10px] md:text-xs font-medium">
-                    <input type="radio" name="횟수" value="1회 체험" class="mr-1.5" required /> 1회 체험
-                  </label>
-                  <label class="flex-1 flex items-center justify-center border border-gray-100 py-3 rounded-xl cursor-pointer hover:bg-gray-50 text-[10px] md:text-xs font-medium">
-                    <input type="radio" name="횟수" value="5회" class="mr-1.5" /> 5회
-                  </label>
-                  <label class="flex-1 flex items-center justify-center border border-gray-100 py-3 rounded-xl cursor-pointer hover:bg-gray-50 text-[10px] md:text-xs font-medium">
-                    <input type="radio" name="횟수" value="10회+" class="mr-1.5" /> 10회+
-                  </label>
+      const ShortGameSection = () => {
+        const FORM_ENDPOINT = "https://formspree.io/f/mbdakbon";
+        const [status, setStatus] = useState("IDLE");
+        const [imgError, setImgError] = useState(false);
+
+        const handleSubmit = async (e) => {
+          e.preventDefault();
+          setStatus("SUBMITTING");
+          const formData = new FormData(e.currentTarget);
+          const data = Object.fromEntries(formData.entries());
+
+          try {
+            const response = await fetch(FORM_ENDPOINT, {
+              method: "POST",
+              body: JSON.stringify({ ...data, _subject: "[스승님] 숏게임 실전 레슨 신청 도착" }),
+              headers: { Accept: "application/json", "Content-Type": "application/json" }
+            });
+
+            if (response.ok) setStatus("SUCCESS");
+            else setStatus("ERROR");
+          } catch {
+            setStatus("ERROR");
+          }
+        };
+
+        return html`
+          <section id="short-game" className="py-20 px-6 md:py-32 bg-white scroll-mt-20">
+            <div className="max-w-7xl mx-auto">
+              <${FadeIn} className="mb-20">
+                <div
+                  className="bg-emerald-600 rounded-[40px] p-8 md:p-12 text-white flex flex-col md:flex-row justify-between items-center gap-8 shadow-2xl shadow-emerald-200"
+                >
+                  <div className="space-y-4 text-center md:text-left">
+                    <span className="inline-block px-4 py-1 bg-white/20 rounded-full text-xs font-bold tracking-widest uppercase">2월 한정 마감임박</span>
+                    <h2 className="text-3xl md:text-5xl font-black tracking-tighter">단 1회 레슨으로<br />5타를 줄여드립니다.</h2>
+                    <p className="text-emerald-50 opacity-90 text-lg font-medium">서수연 프로의 숏게임 마스터클래스</p>
+                  </div>
+                  <div
+                    className="bg-white/10 p-6 md:p-8 rounded-[32px] backdrop-blur-md border border-white/20 text-center min-w-[280px]"
+                  >
+                    <div className="text-emerald-200 text-sm font-bold mb-2 uppercase tracking-widest">현재 잔여석</div>
+                    <div className="text-5xl md:text-6xl font-black mb-4">3<span className="text-2xl ml-1">석</span></div>
+                    <div className="text-xs text-emerald-100 font-medium">매일 오전 10시 업데이트</div>
+                  </div>
+                </div>
+              </${FadeIn}>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-24 items-start">
+                <${FadeIn}>
+                  <div className="relative rounded-[40px] md:rounded-[56px] overflow-hidden bg-gray-50 aspect-square group shadow-xl">
+                    <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-emerald-50/30"></div>
+
+                    <div className="absolute inset-0 flex items-center justify-center p-8 z-10">
+                      ${imgError
+                        ? html`
+                            <div className="flex flex-col items-center justify-center text-center w-full h-full">
+                              <div className="w-48 h-48 md:w-64 md:h-64 bg-emerald-500 rounded-full flex items-center justify-center text-8xl shadow-2xl">🏌️‍♀️</div>
+                              <div className="mt-10 space-y-2">
+                                <h3 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tighter">서수연 프로</h3>
+                                <p className="text-emerald-600 font-bold text-lg italic">"필드에서 결과로 증명합니다"</p>
+                              </div>
+                            </div>
+                          `
+                        : html`
+                            <img
+                              src="assets/3d_golf_instructor.png"
+                              alt="Professional 3D Golf Instructor"
+                              className="w-full h-full object-contain drop-shadow-[0_32px_40px_rgba(0,0,0,0.15)] transition-all duration-700 group-hover:scale-105"
+                              onError=${() => setImgError(true)}
+                            />
+                          `}
+                    </div>
+
+                    <div className="absolute bottom-8 left-8 right-8 z-20 glass-nav bg-white/70 border border-white/80 p-6 rounded-[32px] flex flex-col gap-4 shadow-2xl">
+                      <div className="flex justify-between items-center">
+                        <span className="text-xs font-black text-gray-400 uppercase tracking-widest">Place</span>
+                        <span className="text-sm font-bold text-gray-900">판교 백야드 & 파3 필드</span>
+                      </div>
+                      <div className="h-[1px] bg-gray-200/50 w-full"></div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-xs font-black text-gray-400 uppercase tracking-widest">Special</span>
+                        <span className="text-sm font-bold text-emerald-600">2인 동반 시 입장료 2만원 지원</span>
+                      </div>
+                    </div>
+                  </div>
+                </${FadeIn}>
+
+                <div className="space-y-10">
+                  <div className="space-y-6">
+                    <h3 className="text-2xl md:text-3xl font-black tracking-tighter text-gray-900">왜 숏게임 클래스인가요?</h3>
+                    <ul className="space-y-4">
+                      ${[
+                        "어프로치 뒤땅/탑볼의 근본적인 원인 해결",
+                        "상황별(러프, 벙커, 경사면) 실전 대응 능력 장착",
+                        "투퍼팅 이내로 마무리하는 거리감 교정",
+                        "서수연 프로의 1:1 밀착 코칭 및 데이터 분석"
+                      ].map(
+                        (item, idx) => html`
+                          <li key=${idx} className="flex items-start gap-3">
+                            <span className="text-emerald-500 mt-1">
+                              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path
+                                  fillRule="evenodd"
+                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                  clipRule="evenodd"
+                                />
+                              </svg>
+                            </span>
+                            <span className="text-gray-600 font-medium text-lg">${item}</span>
+                          </li>
+                        `
+                      )}
+                    </ul>
+                  </div>
+
+                  <div className="bg-gray-50 p-8 md:p-10 rounded-[40px] border border-gray-100">
+                    <div className="flex items-baseline gap-4 mb-8">
+                      <span className="text-gray-300 line-through text-lg">250,000원</span>
+                      <span className="font-black text-4xl md:text-5xl text-gray-900 tracking-tighter">
+                        185,000<span className="text-xl md:text-2xl font-bold ml-1">원</span>
+                      </span>
+                      <span className="px-3 py-1 bg-red-100 text-red-600 rounded-lg font-black text-sm">26% OFF</span>
+                    </div>
+
+                    ${status === "SUCCESS"
+                      ? html`
+                          <div className="text-center py-6">
+                            <div className="text-5xl mb-4">🎯</div>
+                            <h4 className="text-2xl font-black text-gray-900 mb-2">신청이 완료되었습니다!</h4>
+                            <p className="text-gray-500 font-medium">운영팀이 곧 연락드리겠습니다.</p>
+                          </div>
+                        `
+                      : html`
+                          <form onSubmit=${handleSubmit} className="space-y-4">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                              <input
+                                required
+                                name="이름"
+                                type="text"
+                                placeholder="성함"
+                                className="w-full px-6 py-5 bg-white border border-gray-200 rounded-2xl outline-none focus:border-emerald-500 transition-all font-medium"
+                              />
+                              <input
+                                required
+                                name="연락처"
+                                type="tel"
+                                placeholder="연락처"
+                                className="w-full px-6 py-5 bg-white border border-gray-200 rounded-2xl outline-none focus:border-emerald-500 transition-all font-medium"
+                              />
+                            </div>
+                            <select
+                              name="인원"
+                              className="w-full px-6 py-5 bg-white border border-gray-200 rounded-2xl outline-none focus:border-emerald-500 transition-all appearance-none font-medium cursor-pointer"
+                            >
+                              <option value="1">1인 신청 (18.5만원)</option>
+                              <option value="2">2인 신청 (입장료 2만원 지원)</option>
+                            </select>
+                            <button
+                              disabled=${status === "SUBMITTING"}
+                              type="submit"
+                              className="w-full py-6 bg-emerald-600 text-white rounded-2xl font-black text-xl hover:bg-emerald-700 transition-all shadow-xl shadow-emerald-200 disabled:bg-gray-400 disabled:shadow-none"
+                            >
+                              ${status === "SUBMITTING" ? "처리 중..." : "지금 바로 특가로 신청하기"}
+                            </button>
+                            <p className="text-center text-xs text-gray-400 font-medium mt-4">
+                              클릭 시 결제가 바로 진행되지 않으며, 안내 후 결정하실 수 있습니다.
+                            </p>
+                            ${status === "ERROR"
+                              ? html`<p className="text-center text-xs text-red-500 font-semibold">전송에 실패했습니다. 다시 시도해주세요.</p>`
+                              : null}
+                          </form>
+                        `}
+                  </div>
                 </div>
               </div>
+            </div>
+          </section>
+        `;
+      };
 
-              <div class="space-y-2">
-                <label class="text-[10px] font-bold text-gray-400 ml-1 uppercase tracking-tighter">연락처</label>
-                <input required name="연락처" type="tel" placeholder="010-0000-0000" class="w-full px-4 py-4 bg-gray-50 border border-transparent rounded-2xl outline-none focus:bg-white focus:border-emerald-200 transition-all text-sm" />
+      const Comparison = () => {
+        const leftItems = useMemo(
+          () => [
+            "10회~20회 고가 패키지 선결제 강요",
+            "프로의 실력이나 성격 확인 불가",
+            "연습장 기계만 보고 치는 스윙 교정",
+            "불친절하거나 프로 위주의 시간 예약",
+            "필드에선 도저히 쓸 수 없는 이론들"
+          ],
+          []
+        );
+        const rightItems = useMemo(
+          () => [
+            "1회 체험 레슨 후 추가 여부 본인 결정",
+            "내 예산과 지역에 맞는 프로 직접 선별",
+            "그린/벙커/경사 등 100% 필드 실전 중심",
+            "운영팀의 엄격한 모니터링 및 중재",
+            "무조건 '스코어'를 줄이는 실전 기술 전수"
+          ],
+          []
+        );
+
+        return html`
+          <section className="py-24 px-6 md:py-40 bg-gray-900 text-white overflow-hidden">
+            <div className="max-w-5xl mx-auto">
+              <${FadeIn} className="text-center mb-16 md:mb-24">
+                <h2 className="text-3xl md:text-5xl font-black tracking-tighter mb-6">
+                  아직도 비싼 패키지 레슨에<br />돈을 버리고 계신가요?
+                </h2>
+                <p className="text-gray-400 font-medium text-lg md:text-xl italic">"레슨은 골퍼가 갑(甲)이어야 합니다"</p>
+              </${FadeIn}>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-0">
+                <${FadeIn} className="bg-gray-800/50 p-8 md:p-12 rounded-[40px] md:rounded-r-none border border-gray-700">
+                  <h3 className="text-2xl font-bold mb-10 flex items-center gap-3">
+                    <span className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-xl">❌</span>
+                    전통적인 레슨 방식
+                  </h3>
+                  <ul className="space-y-6">
+                    ${leftItems.map(
+                      (item, idx) => html`
+                        <li key=${idx} className="flex items-center gap-4 text-gray-400 font-medium">
+                          <span className="w-1.5 h-1.5 bg-gray-600 rounded-full"></span>
+                          ${item}
+                        </li>
+                      `
+                    )}
+                  </ul>
+                </${FadeIn}>
+
+                <${FadeIn} className="bg-emerald-600 p-8 md:p-12 rounded-[40px] md:scale-110 md:z-10 shadow-3xl shadow-emerald-500/20">
+                  <h3 className="text-2xl font-black mb-10 flex items-center gap-3">
+                    <span className="w-10 h-10 bg-white text-emerald-600 rounded-full flex items-center justify-center text-xl">✅</span>
+                    스승님 (Seuseungnim)
+                  </h3>
+                  <ul className="space-y-6">
+                    ${rightItems.map(
+                      (item, idx) => html`
+                        <li key=${idx} className="flex items-center gap-4 text-white font-black">
+                          <svg className="w-6 h-6 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                              fillRule="evenodd"
+                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                          ${item}
+                        </li>
+                      `
+                    )}
+                  </ul>
+                  <div className="mt-12 text-center">
+                    <a
+                      href="#custom-lesson"
+                      onClick=${(e) => (e.preventDefault(), scrollToId("custom-lesson"))}
+                      className="inline-block w-full py-5 bg-white text-emerald-600 rounded-2xl font-black text-lg hover:bg-emerald-50 transition-colors"
+                    >
+                      지금 바로 스승님 찾기
+                    </a>
+                  </div>
+                </${FadeIn}>
               </div>
             </div>
+          </section>
+        `;
+      };
 
-            <div class="pt-2 text-center">
-              <p class="text-[9px] text-gray-400 mb-6 tracking-tight italic">“본 서비스는 결제 없는 무료 매칭이며, 조건 확인 후 진행 여부를 결정하세요”</p>
-              <button id="customSubmit" type="submit" class="w-full md:w-2/3 py-4 md:py-5 bg-black text-white rounded-2xl text-base md:text-lg font-bold hover:bg-gray-800 transition-all shadow-xl shadow-gray-200 disabled:bg-gray-400">
-                맞춤 스승님 찾기
-              </button>
-              <p id="customError" class="hidden mt-4 text-xs text-red-500 font-medium">전송에 실패했습니다. 잠시 후 다시 시도해주세요.</p>
+      const Reviews = () => {
+        const reviews = useMemo(
+          () => [
+            { text: "드라이버는 220m 나가는데 맨날 그린 주변에서 냉탕온탕 하다 타수 다 까먹던 1인입니다. 서수연 프로님 수업 듣고 어프로치 자신감 생기니 스코어 6타 바로 줄였네요.", author: "닉네임: 싱글가자 (105타 → 99타)" },
+            { text: "연습장 레슨만 3년 받았는데 필드 가면 스윙이 안 나와서 포기하려다 마지막으로 신청했어요. 역시 실전 레슨은 다르네요. 필드에서 어떻게 쳐야 하는지 이제야 알 것 같습니다.", author: "닉네임: 평일골퍼 (110타 → 102타)" },
+            { text: "다른 곳처럼 비싼 패키지 강요 안 해서 너무 좋았어요. 1회 받아보고 '아 이 분이다' 싶어서 추가 결제했습니다. 맞춤 요청 서비스 진짜 편하네요.", author: "닉네임: 주말라운딩 (98타 → 94타)" },
+            { text: "2월 숏게임 클래스 지인이랑 같이 들었는데 지원금까지 주니 가성비 최고네요. 실내랑 야외 숏게임장 같이 하니까 확실히 감각이 빨리 올라와요.", author: "닉네임: 숏게임신 (102타 → 95타)" },
+            { text: "프로님들이 진짜 친절하고 열정적입니다. 예산에 맞춰서 추천해주신 프로님 대만족이에요. 레슨 고민하시는 분들 일단 요청서라도 써보시길.", author: "닉네임: 골프사랑 (115타 → 108타)" },
+            { text: "구력은 오래됐는데 숏게임만 하면 긴장해서 삑사리 나던 고질병 고쳤습니다. 기술도 기술인데 멘탈이랑 루틴 잡아주신 게 정말 큰 도움이 됐어요.", author: "닉네임: 구력10년 (92타 → 88타)" }
+          ],
+          []
+        );
+
+        return html`
+          <section id="reviews" className="py-24 px-6 md:py-40 bg-white scroll-mt-24">
+            <div className="max-w-7xl mx-auto">
+              <${FadeIn} className="text-center mb-16 md:mb-24">
+                <h2 className="text-3xl md:text-5xl font-black tracking-tighter mb-6">스승님을 만난 후 바뀐 스코어카드</h2>
+                <p className="text-gray-500 text-lg md:text-xl font-medium">조작 없는 100% 실제 수강생 후기입니다.</p>
+              </${FadeIn}>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                ${reviews.map(
+                  (r, i) => html`
+                    <${FadeIn} key=${i}>
+                      <div
+                        className="bg-gray-50 p-10 rounded-[48px] border border-transparent hover:border-emerald-100 hover:bg-white hover:shadow-2xl transition-all h-full flex flex-col justify-between"
+                      >
+                        <div>
+                          <div className="flex text-emerald-500 mb-6">
+                            ${Array.from({ length: 5 }).map(
+                              (_, idx) => html`
+                                <svg key=${idx} className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                  <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                                  />
+                                </svg>
+                              `
+                            )}
+                          </div>
+                          <p className="text-gray-700 text-lg leading-relaxed font-medium break-keep mb-10">"${r.text}"</p>
+                        </div>
+                        <div className="flex items-center gap-4">
+                          <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-xl">👤</div>
+                          <span className="font-bold text-gray-900 text-sm">${r.author}</span>
+                        </div>
+                      </div>
+                    </${FadeIn}>
+                  `
+                )}
+              </div>
             </div>
-          </form>
-        </div>
-      </div>
-    </section>
+          </section>
+        `;
+      };
 
-    <section id="faq" class="py-24 px-6 md:py-32 bg-[#F9FAFB] scroll-mt-28">
-      <div class="max-w-3xl mx-auto">
-        <div class="fade-in-section text-center mb-16">
-          <h2 class="text-4xl font-bold tracking-tight">자주 묻는 질문</h2>
-        </div>
+      const CustomLessonSection = () => {
+        const FORM_ENDPOINT = "https://formspree.io/f/mbdakbon";
+        const [status, setStatus] = useState("IDLE");
 
-        <div class="space-y-4" id="faqList">
-          <div class="fade-in-section bg-white rounded-2xl border border-gray-100 overflow-hidden">
-            <button type="button" class="faq-btn w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors" aria-expanded="false">
-              <span class="font-semibold text-gray-900">맞춤 요청을 하면 바로 레슨이 시작되나요?</span>
-              <span class="faq-icon transform transition-transform">
-                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-              </span>
-            </button>
-            <div class="faq-panel hidden px-8 pb-6 text-gray-500 text-sm leading-relaxed border-t border-gray-50 pt-4">
-              아닙니다. 먼저 프로님의 프로필과 가능한 일정을 안내드립니다. 확인 후 진행 의사를 밝혀주시면 연결됩니다.
-            </div>
-          </div>
+        const steps = useMemo(
+          () => [
+            { num: "01", title: "레슨 요청", desc: "지역, 예산, 고민을 입력하세요" },
+            { num: "02", title: "프로 선별", desc: "운영팀이 프로 3인을 추천합니다" },
+            { num: "03", title: "상담 및 매칭", desc: "프로님과 직접 대화해보세요" },
+            { num: "04", title: "체험 레슨", desc: "1회 받아보고 결정을 내리세요" }
+          ],
+          []
+        );
 
-          <div class="fade-in-section bg-white rounded-2xl border border-gray-100 overflow-hidden">
-            <button type="button" class="faq-btn w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors" aria-expanded="false">
-              <span class="font-semibold text-gray-900">여러 프로님께 연락이 오면 번거롭지 않을까요?</span>
-              <span class="faq-icon transform transition-transform">
-                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-              </span>
-            </button>
-            <div class="faq-panel hidden px-8 pb-6 text-gray-500 text-sm leading-relaxed border-t border-gray-50 pt-4">
-              운영팀이 최적의 프로님 최대 3분만 엄선하여 안내드리며, 스승님 카카오톡 채널을 통해서만 연락을 주고받으실 수 있습니다.
-            </div>
-          </div>
-
-          <div class="fade-in-section bg-white rounded-2xl border border-gray-100 overflow-hidden">
-            <button type="button" class="faq-btn w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors" aria-expanded="false">
-              <span class="font-semibold text-gray-900">결제는 언제 어떻게 진행하나요?</span>
-              <span class="faq-icon transform transition-transform">
-                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-              </span>
-            </button>
-            <div class="faq-panel hidden px-8 pb-6 text-gray-500 text-sm leading-relaxed border-t border-gray-50 pt-4">
-              매칭된 프로님과 일정을 최종 확정한 뒤 결제하시면 됩니다. 체험형은 1회분만 먼저 결제 가능합니다.
-            </div>
-          </div>
-
-          <div class="fade-in-section bg-white rounded-2xl border border-gray-100 overflow-hidden">
-            <button type="button" class="faq-btn w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors" aria-expanded="false">
-              <span class="font-semibold text-gray-900">환불이나 취소 규정은 어떻게 되나요?</span>
-              <span class="faq-icon transform transition-transform">
-                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-              </span>
-            </button>
-            <div class="faq-panel hidden px-8 pb-6 text-gray-500 text-sm leading-relaxed border-t border-gray-50 pt-4">
-              레슨 24시간 전까지는 100% 환불이 가능하며, 운영팀이 중재하여 안전한 결제 환경을 보장합니다.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="bg-white border-t border-gray-100 py-20 px-6">
-      <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
-        <div class="space-y-4">
-          <div class="text-2xl font-bold tracking-tight">스승님</div>
-          <p class="text-gray-400 text-sm max-w-sm font-light">
-            당신에게 가장 필요한 단 한 명의 스승을 연결합니다<br />
-            실전과 맞춤형 연결을 통해 골프 라이프를 혁신하세요
-          </p>
-        </div>
-
-        <div class="grid grid-cols-2 gap-12 text-sm">
-          <div class="space-y-3">
-            <h5 class="font-bold text-gray-900">COMPANY</h5>
-            <ul class="text-gray-400 space-y-2 font-light">
-              <li class="hover:text-black cursor-pointer">이용약관</li>
-              <li class="hover:text-black cursor-pointer">개인정보처리방침</li>
-              <li class="hover:text-black cursor-pointer">사업자 정보</li>
-            </ul>
-          </div>
-
-          <div class="space-y-3">
-            <h5 class="font-bold text-gray-900">CONTACT</h5>
-            <ul class="text-gray-400 space-y-2 font-light">
-              <li><a href="http://pf.kakao.com/_kxawRn/chat" class="hover:text-black">카카오톡 @스승님</a></li>
-              <li><a href="mailto:contact@seuseungnim.com" class="hover:text-black">contact@seuseungnim.com</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="max-w-7xl mx-auto mt-20 pt-8 border-t border-gray-50 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-gray-300 uppercase tracking-widest">
-        <span>© 2024 Seuseungnim All rights reserved</span>
-        <div class="flex gap-4">
-          <span class="hover:text-gray-600 cursor-pointer">Instagram</span>
-          <span class="hover:text-gray-600 cursor-pointer">Blog</span>
-        </div>
-      </div>
-    </footer>
-  </main>
-
-  <div class="md:hidden fixed bottom-0 left-0 w-full p-4 z-50 border-t border-white/20"
-       style="background:linear-gradient(135deg, rgba(16,185,129,.22), rgba(59,130,246,.18), rgba(168,85,247,.16)); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);">
-    <div class="flex gap-2">
-      <a href="#short-game" class="flex-1 py-4 bg-white/70 text-black text-center rounded-2xl font-bold text-sm border border-white/40">숏게임 신청</a>
-      <a href="#custom-lesson" class="flex-1 py-4 bg-black text-white text-center rounded-2xl font-bold text-sm shadow-lg shadow-gray-200">맞춤레슨 요청</a>
-    </div>
-  </div>
-
-  <script>
-    (function () {
-      var FORM_ENDPOINT = "https://formspree.io/f/mbdakbon";
-
-      var goTop = document.getElementById("goTop");
-      if (goTop) {
-        goTop.addEventListener("click", function () {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-      }
-
-      var fadeEls = Array.prototype.slice.call(document.querySelectorAll(".fade-in-section"));
-      if ("IntersectionObserver" in window) {
-        var io = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-visible");
-              io.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.1 });
-        fadeEls.forEach(function (el) { io.observe(el); });
-      } else {
-        fadeEls.forEach(function (el) { el.classList.add("is-visible"); });
-      }
-
-      var shortgameImg = document.getElementById("shortgameImg");
-      var shortgameVisual = document.getElementById("shortgameVisual");
-      if (shortgameImg && shortgameVisual) {
-        shortgameImg.addEventListener("error", function () {
-          shortgameVisual.innerHTML =
-            '<div class="text-center p-8">' +
-              '<div class="inline-block px-3 py-1 bg-black text-white text-[9px] font-bold tracking-[0.2em] rounded-full mb-4 uppercase">Exclusive Masterclass</div>' +
-              '<h3 class="text-4xl md:text-6xl font-black text-gray-900 mb-4 tracking-tight leading-none">스승님<br/><span class="text-emerald-500">X</span><br/>서수연 프로</h3>' +
-              '<p class="text-gray-400 font-light text-base">이미지 파일을 확인해주세요<br/><span class="text-xs">(./assets/shortgame_pro.png)</span></p>' +
-            '</div>';
-        });
-      }
-
-      function postFormJson(formEl, subject) {
-        var fd = new FormData(formEl);
-        var obj = {};
-        fd.forEach(function (v, k) { obj[k] = v; });
-        obj._subject = subject;
-
-        return fetch(FORM_ENDPOINT, {
-          method: "POST",
-          headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(obj)
-        });
-      }
-
-      var shortGameForm = document.getElementById("shortGameForm");
-      var shortGameSubmit = document.getElementById("shortGameSubmit");
-      var shortGameSuccess = document.getElementById("shortGameSuccess");
-      var shortGameError = document.getElementById("shortGameError");
-
-      if (shortGameForm) {
-        shortGameForm.addEventListener("submit", function (e) {
+        const handleSubmit = async (e) => {
           e.preventDefault();
-          if (shortGameError) shortGameError.classList.add("hidden");
-          if (shortGameSubmit) {
-            shortGameSubmit.disabled = true;
-            shortGameSubmit.textContent = "전송 중...";
-          }
+          setStatus("SUBMITTING");
 
-          postFormJson(shortGameForm, "[스승님] 숏게임 실전 레슨 신청 도착")
-            .then(function (res) {
-              if (res.ok) {
-                if (shortGameForm) shortGameForm.classList.add("hidden");
-                if (shortGameSuccess) shortGameSuccess.classList.remove("hidden");
-              } else {
-                if (shortGameError) shortGameError.classList.remove("hidden");
-              }
-            })
-            .catch(function () {
-              if (shortGameError) shortGameError.classList.remove("hidden");
-            })
-            .finally(function () {
-              if (shortGameSubmit && shortGameForm && !shortGameForm.classList.contains("hidden")) {
-                shortGameSubmit.disabled = false;
-                shortGameSubmit.textContent = "숏게임 레슨 신청하기";
-              }
+          const formData = new FormData(e.currentTarget);
+          const data = Object.fromEntries(formData.entries());
+
+          try {
+            const response = await fetch(FORM_ENDPOINT, {
+              method: "POST",
+              body: JSON.stringify({ ...data, _subject: "[스승님] 맞춤 레슨 요청서 도착" }),
+              headers: { Accept: "application/json", "Content-Type": "application/json" }
             });
-        });
-      }
 
-      var customForm = document.getElementById("customForm");
-      var customSubmit = document.getElementById("customSubmit");
-      var customSuccess = document.getElementById("customSuccess");
-      var customCard = document.getElementById("customCard");
-      var customError = document.getElementById("customError");
+            if (response.ok) setStatus("SUCCESS");
+            else setStatus("ERROR");
+          } catch {
+            setStatus("ERROR");
+          }
+        };
 
-      if (customForm) {
-        customForm.addEventListener("submit", function (e) {
+        return html`
+          <section id="custom-lesson" className="py-24 px-6 md:py-40 bg-[#F9FAFB] scroll-mt-20">
+            <div className="max-w-6xl mx-auto">
+              <${FadeIn} className="text-center mb-20 md:mb-32">
+                <span className="text-emerald-600 font-bold tracking-widest text-xs md:text-sm uppercase mb-6 block">Premium Matching Flow</span>
+                <h2 className="text-3xl md:text-5xl font-black mb-8 tracking-tighter leading-tight">
+                  내 조건에 딱 맞는 스승님,<br />찾을 때까지 '무료'입니다
+                </h2>
+                <p className="text-gray-500 text-lg md:text-xl font-medium max-w-2xl mx-auto break-keep">
+                  더 이상 프로님 비위 맞추는 레슨은 그만하세요.<br />이제 골퍼가 조건을 정하고 프로님이 지원합니다.
+                </p>
+              </${FadeIn}>
+
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-24 md:mb-32">
+                ${steps.map(
+                  (s, i) => html`
+                    <${FadeIn} key=${i}>
+                      <div className="relative bg-white p-8 rounded-[40px] border border-gray-100 shadow-sm flex flex-col items-center text-center">
+                        <div className="text-emerald-500 font-black text-3xl mb-4 italic opacity-30">${s.num}</div>
+                        <h4 className="text-xl font-bold mb-3 text-gray-900">${s.title}</h4>
+                        <p className="text-gray-400 font-medium text-sm leading-relaxed break-keep">${s.desc}</p>
+                        ${i < 3
+                          ? html`
+                              <div className="hidden md:block absolute top-1/2 -right-4 translate-y-[-50%] z-10">
+                                <svg className="w-8 h-8 text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                                </svg>
+                              </div>
+                            `
+                          : null}
+                      </div>
+                    </${FadeIn}>
+                  `
+                )}
+              </div>
+
+              <${FadeIn} className="max-w-3xl mx-auto">
+                ${status === "SUCCESS"
+                  ? html`
+                      <div className="bg-white p-10 md:p-16 rounded-[48px] text-center border border-emerald-100 shadow-2xl">
+                        <div className="text-6xl mb-8">✨</div>
+                        <h4 className="text-2xl md:text-3xl font-black text-gray-900 mb-4">프로필 선별 중입니다</h4>
+                        <p className="text-gray-500 mb-10 font-medium text-lg leading-relaxed break-keep">
+                          가장 실력 있는 프로님들의 정보를 정리하여<br />1시간 내로 안내해 드리겠습니다.
+                        </p>
+                        <a
+                          href="http://pf.kakao.com/_kxawRn/chat"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-block px-12 py-5 bg-[#FEE500] text-[#3c1e1e] rounded-2xl font-black text-lg hover:scale-105 transition-transform"
+                        >
+                          카카오톡으로 빠른 상담받기
+                        </a>
+                      </div>
+                    `
+                  : html`
+                      <div className="bg-white p-8 md:p-16 rounded-[48px] shadow-2xl shadow-gray-200/50 border border-gray-100">
+                        <form onSubmit=${handleSubmit} className="space-y-8">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div className="space-y-3">
+                              <label className="text-xs font-black text-gray-400 uppercase tracking-widest ml-1">희망 지역</label>
+                              <input
+                                required
+                                name="지역"
+                                type="text"
+                                placeholder="예: 서울 강남 / 판교"
+                                className="w-full px-6 py-5 bg-gray-50 border border-transparent rounded-2xl outline-none focus:bg-white focus:border-emerald-200 transition-all font-medium"
+                              />
+                            </div>
+                            <div className="space-y-3">
+                              <label className="text-xs font-black text-gray-400 uppercase tracking-widest ml-1">예산 (1회 기준)</label>
+                              <select
+                                name="예산"
+                                defaultValue="13"
+                                className="w-full px-6 py-5 bg-gray-50 border border-transparent rounded-2xl outline-none focus:bg-white focus:border-emerald-200 transition-all appearance-none font-medium cursor-pointer"
+                              >
+                                <option value="10">10만원 이하 (가성비 중심)</option>
+                                <option value="13">13만원 내외 (추천)</option>
+                                <option value="15">15만원 이상 (프리미엄)</option>
+                              </select>
+                            </div>
+                          </div>
+
+                          <div className="space-y-3">
+                            <label className="text-xs font-black text-gray-400 uppercase tracking-widest ml-1">해결하고 싶은 고민</label>
+                            <textarea
+                              required
+                              name="고민사항"
+                              placeholder="예: 슬라이스 교정, 비거리 20m 늘리기, 숏게임 울렁증 등"
+                              className="w-full px-6 py-5 bg-gray-50 border border-transparent rounded-2xl outline-none focus:bg-white focus:border-emerald-200 transition-all h-32 md:h-40 resize-none font-medium"
+                            ></textarea>
+                          </div>
+
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div className="space-y-3">
+                              <label className="text-xs font-black text-gray-400 uppercase tracking-widest ml-1">연락처</label>
+                              <input
+                                required
+                                name="연락처"
+                                type="tel"
+                                placeholder="010-0000-0000"
+                                className="w-full px-6 py-5 bg-gray-50 border border-transparent rounded-2xl outline-none focus:bg-white focus:border-emerald-200 transition-all font-medium"
+                              />
+                            </div>
+                            <div className="flex items-end">
+                              <button
+                                disabled=${status === "SUBMITTING"}
+                                type="submit"
+                                className="w-full py-5 bg-black text-white rounded-2xl font-black text-lg hover:bg-gray-800 transition-all shadow-xl shadow-black/10 disabled:bg-gray-400"
+                              >
+                                ${status === "SUBMITTING" ? "전송 중..." : "맞춤 프로 추천받기"}
+                              </button>
+                            </div>
+                          </div>
+
+                          <p className="text-center text-xs text-gray-400 font-medium">
+                            본 요청은 무료이며, 프로님의 정보를 먼저 확인하고 진행 여부를 결정하세요.
+                          </p>
+                          ${status === "ERROR"
+                            ? html`<p className="text-center text-xs text-red-500 font-semibold">전송에 실패했습니다. 다시 시도해주세요.</p>`
+                            : null}
+                        </form>
+                      </div>
+                    `}
+              </${FadeIn}>
+            </div>
+          </section>
+        `;
+      };
+
+      const FAQ = () => {
+        const faqs = useMemo(
+          () => [
+            { q: "맞춤 요청을 하면 바로 레슨이 시작되나요?", a: "아닙니다. 먼저 프로님의 프로필과 가능한 일정을 안내드립니다. 확인 후 진행 의사를 밝혀주시면 연결됩니다." },
+            { q: "여러 프로님께 연락이 오면 번거롭지 않을까요?", a: "운영팀이 최적의 프로님 최대 3분만 엄선하여 안내드리며, 스승님 카카오톡 채널을 통해서만 연락을 주고받으실 수 있습니다." },
+            { q: "결제는 언제 어떻게 진행하나요?", a: "매칭된 프로님과 일정을 최종 확정한 뒤 결제하시면 됩니다. 체험형은 1회분만 먼저 결제 가능합니다." },
+            { q: "환불이나 취소 규정은 어떻게 되나요?", a: "레슨 24시간 전까지는 100% 환불이 가능하며, 운영팀이 중재하여 안전한 결제 환경을 보장합니다." },
+            { q: "완전 초보인데도 수강이 가능한가요?", a: "네. 기초 스윙부터 단계별로 지도하는 프로님들이 계시며, 맞춤 요청 시 '초보'임을 기재해주시면 더 적합한 분을 매칭해드립니다." },
+            { q: "전국 어디서나 가능한가요?", a: "현재 서울, 경기 지역을 중심으로 운영 중이며, 점차 확대하고 있습니다. 지역 정보를 남겨주시면 가능 여부를 확인해드립니다." }
+          ],
+          []
+        );
+
+        const [openIndex, setOpenIndex] = useState(null);
+
+        return html`
+          <section id="faq" className="py-24 px-6 md:py-32 bg-[#F9FAFB] scroll-mt-24">
+            <div className="max-w-3xl mx-auto">
+              <${FadeIn} className="text-center mb-16">
+                <h2 className="text-4xl font-bold tracking-tight">자주 묻는 질문</h2>
+              </${FadeIn}>
+
+              <div className="space-y-4">
+                ${faqs.map(
+                  (f, i) => html`
+                    <${FadeIn} key=${i}>
+                      <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
+                        <button
+                          onClick=${() => setOpenIndex(openIndex === i ? null : i)}
+                          className="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
+                        >
+                          <span className="font-semibold text-gray-900">${f.q}</span>
+                          <span className=${`transform transition-transform ${openIndex === i ? "rotate-180" : ""}`}>
+                            <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                          </span>
+                        </button>
+                        ${openIndex === i
+                          ? html`<div className="px-8 pb-6 text-gray-500 text-sm leading-relaxed border-t border-gray-50 pt-4">${f.a}</div>`
+                          : null}
+                      </div>
+                    </${FadeIn}>
+                  `
+                )}
+              </div>
+            </div>
+          </section>
+        `;
+      };
+
+      const Footer = () => {
+        return html`
+          <footer className="bg-white border-t border-gray-100 py-20 px-6 pb-28 md:pb-20">
+            <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
+              <div className="space-y-4">
+                <div className="text-2xl font-bold tracking-tight">스승님</div>
+                <p className="text-gray-400 text-sm max-w-sm font-light">
+                  당신에게 가장 필요한 단 한 명의 스승을 연결합니다<br />
+                  실전과 맞춤형 연결을 통해 골프 라이프를 혁신하세요
+                </p>
+              </div>
+              <div className="grid grid-cols-2 gap-12 text-sm">
+                <div className="space-y-3">
+                  <h5 className="font-bold text-gray-900">COMPANY</h5>
+                  <ul className="text-gray-400 space-y-2 font-light">
+                    <li className="hover:text-black cursor-pointer">이용약관</li>
+                    <li className="hover:text-black cursor-pointer">개인정보처리방침</li>
+                    <li className="hover:text-black cursor-pointer">사업자 정보</li>
+                  </ul>
+                </div>
+                <div className="space-y-3">
+                  <h5 className="font-bold text-gray-900">CONTACT</h5>
+                  <ul className="text-gray-400 space-y-2 font-light">
+                    <li>
+                      <a href="http://pf.kakao.com/_kxawRn/chat" className="hover:text-black" target="_blank" rel="noreferrer">카카오톡 @스승님</a>
+                    </li>
+                    <li>
+                      <a href="mailto:contact@seuseungnim.com" className="hover:text-black">contact@seuseungnim.com</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div
+              className="max-w-7xl mx-auto mt-20 pt-8 border-t border-gray-50 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-gray-300 uppercase tracking-widest"
+            >
+              <span>© 2024 Seuseungnim All rights reserved</span>
+              <div className="flex gap-4">
+                <span className="hover:text-gray-600 cursor-pointer">Instagram</span>
+                <span className="hover:text-gray-600 cursor-pointer">Blog</span>
+              </div>
+            </div>
+          </footer>
+        `;
+      };
+
+      const MobileStickyCTA = () => {
+        const onNav = (e, id) => {
           e.preventDefault();
-          if (customError) customError.classList.add("hidden");
-          if (customSubmit) {
-            customSubmit.disabled = true;
-            customSubmit.textContent = "전송 중...";
-          }
+          scrollToId(id);
+        };
 
-          postFormJson(customForm, "[스승님] 맞춤 레슨 요청서 도착")
-            .then(function (res) {
-              if (res.ok) {
-                if (customCard) customCard.classList.add("hidden");
-                if (customSuccess) customSuccess.classList.remove("hidden");
-              } else {
-                if (customError) customError.classList.remove("hidden");
-              }
-            })
-            .catch(function () {
-              if (customError) customError.classList.remove("hidden");
-            })
-            .finally(function () {
-              if (customSubmit && customCard && !customCard.classList.contains("hidden")) {
-                customSubmit.disabled = false;
-                customSubmit.textContent = "맞춤 스승님 찾기";
-              }
-            });
-        });
-      }
+        return html`
+          <div className="md:hidden fixed bottom-0 left-0 w-full p-4 bg-gradient-to-t from-white via-white/90 to-transparent z-50">
+            <div className="flex gap-2">
+              <a
+                href="#short-game"
+                onClick=${(e) => onNav(e, "short-game")}
+                className="flex-1 py-4 bg-gray-100 text-black text-center rounded-2xl font-bold text-sm"
+              >
+                숏게임 신청
+              </a>
+              <a
+                href="#custom-lesson"
+                onClick=${(e) => onNav(e, "custom-lesson")}
+                className="flex-1 py-4 bg-black text-white text-center rounded-2xl font-bold text-sm shadow-lg shadow-gray-200"
+              >
+                맞춤레슨 요청
+              </a>
+            </div>
+          </div>
+        `;
+      };
 
-      var faqBtns = Array.prototype.slice.call(document.querySelectorAll(".faq-btn"));
-      faqBtns.forEach(function (btn) {
-        btn.addEventListener("click", function () {
-          var parent = btn.closest("div");
-          if (!parent) return;
+      const App = () => {
+        return html`
+          <div className="relative min-h-screen bg-white">
+            <${Header} />
+            <main>
+              <${Hero} />
+              <${Features} />
+              <${ShortGameSection} />
+              <${Comparison} />
+              <${Reviews} />
+              <${CustomLessonSection} />
+              <${FAQ} />
+            </main>
+            <${Footer} />
+            <${MobileStickyCTA} />
+          </div>
+        `;
+      };
 
-          faqBtns.forEach(function (b) {
-            if (b === btn) return;
-            var p = b.closest("div");
-            if (!p) return;
-            var panel = p.querySelector(".faq-panel");
-            var icon = p.querySelector(".faq-icon");
-            if (panel) panel.classList.add("hidden");
-            if (icon) icon.classList.remove("rotate-180");
-            b.setAttribute("aria-expanded", "false");
-          });
-
-          var panel = parent.querySelector(".faq-panel");
-          var icon = parent.querySelector(".faq-icon");
-          var expanded = btn.getAttribute("aria-expanded") === "true";
-
-          if (panel) panel.classList.toggle("hidden", expanded);
-          if (icon) icon.classList.toggle("rotate-180", !expanded);
-          btn.setAttribute("aria-expanded", expanded ? "false" : "true");
-        });
-      });
-    })();
-  </script>
-</body>
+      const rootEl = document.getElementById("root");
+      if (!rootEl) throw new Error("Could not find root element to mount to");
+      const root = ReactDOM.createRoot(rootEl);
+      root.render(html`<${App} />`);
+    </script>
+  </body>
 </html>
-
